@@ -3,7 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GamePot Studio</title>
+    <title>GamePot Studio - 게임 빌드 통합 관리 솔루션</title>
+    
+    <!-- 기본 메타 태그 -->
+    <meta name="description" content="GamePot Studio는 게임 빌드의 빌드, 버전, UI를 통합적으로 관리할 수 있도록 설계된 통합 프로그램입니다. Windows, macOS, Linux를 포함한 다양한 운영체제에서 실행 가능합니다." />
+    <meta name="keywords" content="GamePot Studio, 게임팟 스튜디오, 게임 빌드 관리, 게임 버전 관리, 게임 런처, 게임 배포, 게임 개발 도구" />
+    <meta name="author" content="NAVER Cloud" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gamepotstudio.com/" />
+    <meta property="og:title" content="GamePot Studio - 게임 빌드 통합 관리 솔루션" />
+    <meta property="og:description" content="게임 빌드의 빌드, 버전, UI를 통합적으로 관리할 수 있도록 설계된 통합 프로그램입니다." />
+    <meta property="og:image" content="https://gamepotstudio.com/images/og-image.png" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://gamepotstudio.com/" />
+    <meta property="twitter:title" content="GamePot Studio - 게임 빌드 통합 관리 솔루션" />
+    <meta property="twitter:description" content="게임 빌드의 빌드, 버전, UI를 통합적으로 관리할 수 있도록 설계된 통합 프로그램입니다." />
+    <meta property="twitter:image" content="https://gamepotstudio.com/images/og-image.png" />
+    
+    <!-- 파비콘 -->
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+    
+    <!-- 구조화된 데이터 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "GamePot Studio",
+      "applicationCategory": "GameDevelopment",
+      "operatingSystem": ["Windows", "macOS", "Linux"],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "KRW"
+      },
+      "description": "게임 빌드의 빌드, 버전, UI를 통합적으로 관리할 수 있도록 설계된 통합 프로그램입니다.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "NAVER Cloud",
+        "url": "https://www.ncloud.com"
+      }
+    }
+    </script>
+    
+    <!-- 기존 스타일시트 -->
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
@@ -318,7 +365,7 @@
             </div>
             <div class="hidden md:flex md:space-x-6 ml-10">
               <a href="#features" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium" data-i18n="features">기능</a>
-              <a href="#download" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium" data-i18n="download">다운로드</a>
+              <a href="#downloads" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium" data-i18n="downloads">다운로드</a>
             </div>
           </div>
           <div class="flex items-center space-x-4">
@@ -351,7 +398,7 @@
         <div class="bg-black border-t border-gray-700">
           <div class="px-4 py-3 space-y-1">
             <a href="#features" class="block px-3 py-2 text-base text-gray-300 hover:text-white" data-i18n="features">기능</a>
-            <a href="#download" class="block px-3 py-2 text-base text-gray-300 hover:text-white" data-i18n="download">다운로드</a>
+            <a href="#downloads" class="block px-3 py-2 text-base text-gray-300 hover:text-white" data-i18n="download">다운로드</a>
             <div class="pt-4 pb-3 border-t border-gray-700">
               <div class="mt-3 px-3">
                 <button class="flex items-center text-gray-300 hover:text-white" id="mobileLangButton">
@@ -529,8 +576,8 @@
     </div>
 
     <!-- 서비스 특징 섹션 -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14" id="features">
-      <div class="text-left mb-14">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14" >
+      <div class="text-left mb-14" id="features">
         <h2 class="text-3xl font-bold text-gray-900 mb-4" data-i18n="serviceTitle">더욱 강력해진 GamePot Studio</h2>
         <p class="text-xl text-gray-600 max-w-3xl" data-i18n="serviceDesc">
           게임 빌드 관리부터 버전 관리, 파일 관리, 디자인 에디터까지 한 번에 관리할 수 있습니다.
@@ -652,7 +699,7 @@
     </div>
 
     <!-- 다운로드 섹션 -->
-    <section class="py-20 bg-[#f8f9fa]">
+    <section class="py-20 bg-[#f8f9fa]" id="downloads">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
           <h2 class="text-2xl font-bold mb-4" data-i18n="downloadHeader">지금 다운로드하세요</h2>
