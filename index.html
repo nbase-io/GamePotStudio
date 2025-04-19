@@ -103,10 +103,154 @@
         opacity: 1;
         border-color: white;
       }
+
+      .chat-bubble {
+        position: relative;
+      }
+      .chat-bubble::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+      }
+      .chat-bubble-left::after {
+        left: -10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+      }
+      .chat-bubble-right::after {
+        right: -10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent #EC4899;
+      }
+
+      /* 모바일 메뉴 애니메이션 */
+      #mobileMenu {
+        transition: all 0.3s ease-in-out;
+        max-height: 0;
+        overflow: hidden;
+      }
+      #mobileMenu.show {
+        max-height: 400px;
+      }
+
+      /* 모바일 메뉴 스타일 */
+      @media (max-width: 768px) {
+        .ncp-mobile-menu-item {
+          position: relative;
+          display: block;
+          padding: 0.75rem 1rem;
+          color: #666;
+          transition: all 0.2s;
+        }
+        .ncp-mobile-menu-item:hover {
+          background-color: #f8f9fa;
+          color: #1e3a8a;
+        }
+        .ncp-mobile-menu-item::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 1rem;
+          right: 1rem;
+          height: 1px;
+          background-color: #e5e7eb;
+        }
+      }
+
+      /* 모바일 하단 네비게이션 */
+      .mobile-bottom-nav {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #1a1a1a;
+        padding: 1rem 0;
+        z-index: 50;
+      }
+
+      .mobile-bottom-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #999;
+        font-size: 0.75rem;
+        transition: color 0.2s;
+      }
+
+      .mobile-bottom-nav-item i {
+        font-size: 1.25rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .mobile-bottom-nav-item:hover,
+      .mobile-bottom-nav-item.active {
+        color: #fff;
+      }
+
+      .mobile-bottom-nav-item.active::after {
+        content: '';
+        position: absolute;
+        bottom: -1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 4px;
+        background: #fff;
+        border-radius: 50%;
+      }
+
+      @media (max-width: 768px) {
+        .mobile-bottom-nav {
+          display: block;
+        }
+        
+        /* 하단 네비게이션이 있을 때 본문 여백 조정 */
+        body {
+          padding-bottom: 4rem;
+        }
+      }
+
+      /* 푸터 링크 구분선 스타일 */
+      .text-gray-600 {
+        color: #666;
+      }
+      
+      /* 모바일 대응 */
+      @media (max-width: 768px) {
+        footer {
+          padding-bottom: 5rem; /* 모바일 하단 네비게이션 고려 */
+        }
+      }
+
+      /* 푸터 스타일 */
+      footer {
+        background: #1a1a1a;
+      }
+      
+      footer a:hover {
+        color: #fff;
+      }
+      
+      .text-gray-600 {
+        color: #666;
+      }
+      
+      @media (max-width: 768px) {
+        footer {
+          padding-bottom: 5rem;
+        }
+      }
     </style>
   </head>
   <body class="bg-gray-50 text-gray-800 font-sans text-sm">
-    <!-- 내비게이션 바 -->
+    <!-- 네비게이션 바 -->
     <nav class="bg-white shadow-sm sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -118,39 +262,37 @@
               <a href="#features" class="ncp-nav-item" data-i18n="features">기능</a>
               <a href="#download" class="ncp-nav-item" data-i18n="download">다운로드</a>
             </div>
-            <!-- 모바일 메뉴 버튼 -->
-            <button type="button" class="md:hidden p-2 text-gray-600 hover:text-blue-800" id="mobileMenuButton">
-              <i class="fas fa-bars text-xl"></i>
-            </button>
           </div>
           <div class="flex items-center space-x-4">
-            <a href="https://www.ncloud.com/login" target="_blank" class="text-gray-600 hover:text-blue-800 px-3 py-2 text-sm" data-i18n="login">로그인</a>
-            <a href="https://www.ncloud.com/join" target="_blank" class="bg-blue-800 text-white px-4 py-2 rounded text-sm hover:bg-blue-900 transition-colors" data-i18n="signup">
-              회원가입
-            </a>
-            <div class="relative ml-3">
-              <button type="button" id="languageButton" class="flex items-center text-gray-600 hover:text-blue-800">
-                <i class="fas fa-globe"></i>
-                <span class="ml-1 text-sm" id="currentLang">KO</span>
+            <!-- 데스크톱 버전 로그인/가입 버튼 -->
+            <div class="hidden md:flex items-center space-x-4">
+              <a href="https://www.ncloud.com/login" target="_blank" class="text-gray-600 hover:text-blue-800 px-3 py-2 text-sm" data-i18n="login">로그인</a>
+              <a href="https://www.ncloud.com/join" target="_blank" class="bg-blue-800 text-white px-4 py-2 rounded text-sm hover:bg-blue-900 transition-colors" data-i18n="signup">
+                회원가입
+              </a>
+            </div>
+            <!-- 모바일 메뉴 버튼 -->
+            <div class="flex md:hidden">
+              <button type="button" class="text-gray-600 hover:text-blue-800" id="mobileMenuButton">
+                <i class="fas fa-bars text-xl"></i>
               </button>
-              <div id="languageDropdown" class="hidden absolute right-0 mt-2 py-2 w-32 bg-white rounded-md shadow-xl z-50">
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ko">한국어</a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
-              </div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- 모바일 메뉴 -->
-      <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-gray-200">
-        <div class="px-4 py-3 space-y-2">
-          <a href="#features" class="block text-gray-600 hover:text-blue-800" data-i18n="features">기능</a>
-          <a href="#download" class="block text-gray-600 hover:text-blue-800" data-i18n="download">다운로드</a>
+      <div id="mobileMenu" class="hidden md:hidden">
+        <div class="bg-white">
+          <div class="px-4 py-3 space-y-1">
+            <a href="https://www.ncloud.com/login" target="_blank" class="block py-2 text-base text-gray-600" data-i18n="login">로그인</a>
+            <a href="https://www.ncloud.com/join" target="_blank" class="block py-2 text-base text-gray-600" data-i18n="signup">회원가입</a>
+          </div>
         </div>
       </div>
     </nav>
 
+  
     <!-- 히어로 섹션 -->
     <div class="hero-gradient">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -250,118 +392,71 @@
       </div>
     </div>
 
-    <!-- 주요 기능 섹션 -->
+    <!-- 서비스 특징 섹션 -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14" id="features">
       <div class="text-left mb-14">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4" data-i18n="serviceTitle">서비스 특징</h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" data-i18n="serviceTitle">더욱 강력해진 CLOVA Studio</h2>
         <p class="text-xl text-gray-600 max-w-3xl" data-i18n="serviceDesc">
-          GamePot Studio는 AI 기반의 통합된 서비스를 손쉽게 만들 수 있는 개발 도구입니다. 
-          GamePot Studio를 통해 생산성을 향상하고 경쟁력을 강화할 수 있으며, 현재 1,000개 이상의 기업과 기관이 활용 중입니다.
+          더욱 강력해진 초대규모 HyperCLOVA X 모델을 탑재하여 보다 진화된 퍼포먼스를 선보입니다.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 gap-8">
-        <!-- 빌드 관리 카드 -->
-        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 transition-all hover:shadow-lg">
-          <div class="flex flex-col md:flex-row gap-8">
-            <div class="md:w-1/2">
-              <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                  <i class="fas fa-cubes text-white text-lg"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900" data-i18n="buildManagement">빌드 관리</h3>
+      <!-- 플레이그라운드 섹션 -->
+      <div class="mb-20">
+        <h3 class="text-2xl font-bold mb-6" data-i18n="playgroundTitle">플레이그라운드는 HyperCLOVA X 모델 활용하기</h3>
+        <p class="text-lg text-gray-600 mb-8" data-i18n="playgroundDesc">
+          인공지능이나 코딩 지식이 없어도 텍스트를 기반으로 단 몇 줄의 프롬프트 입력과 간단한 파라미터 설정으로 HyperCLOVA X 모델을 원하는 형태로 만들고, API를 붙급받아 서비스에 손쉽게 적용할 수 있습니다.
+        </p>
+        
+        <div class="relative bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl p-12 overflow-hidden">
+          <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-blue-100/50 to-transparent"></div>
+          
+          <!-- 시스템 프롬프트 대화형 UI -->
+          <div class="relative z-10 flex flex-col gap-8">
+            <div class="flex flex-col items-start gap-4">
+              <div class="bg-blue-500 text-white px-6 py-3 rounded-full text-sm">
+                "맥락의 맥락 설계 설명해줘"
               </div>
-              <p class="text-gray-600 mb-6">
-                게임 빌드 파일을 효율적으로 관리하고 배포할 수 있습니다. 
-                다양한 플랫폼에 대한 빌드를 한 곳에서 통합적으로 관리하세요.
-              </p>
-              <ul class="space-y-3">
-                <li class="flex items-center gap-2 text-gray-700">
-                  <i class="fas fa-check text-blue-600"></i>
-                  <span>빌드 파일(zip, exe, app 등) 업로드 및 관리</span>
-                </li>
-                <li class="flex items-center gap-2 text-gray-700">
-                  <i class="fas fa-check text-blue-600"></i>
-                  <span>운영체제(OS) / 플랫폼별 빌드 분리 등록</span>
-                </li>
-                <li class="flex items-center gap-2 text-gray-700">
-                  <i class="fas fa-check text-blue-600"></i>
-                  <span>빌드 메타정보 관리 (빌드명, 작성일, 변경 내역)</span>
-                </li>
-              </ul>
+              <div class="bg-white bg-opacity-90 backdrop-blur-sm p-6 rounded-2xl shadow-lg max-w-lg">
+                <h4 class="text-lg font-semibold mb-2">시스템 프롬프트</h4>
+                <p class="text-gray-600">전화하게 답변하는 과학 선생님입니다.</p>
+              </div>
             </div>
-            <div class="md:w-1/2">
-              <img src="https://via.placeholder.com/600x300/1E40AF/FFFFFF?text=빌드+관리" alt="빌드 관리" class="rounded-lg shadow-lg w-full">
+            
+            <div class="flex flex-col items-end gap-4">
+              <div class="bg-pink-500 text-white px-6 py-3 rounded-full text-sm max-w-lg">
+                쉽게 설명해 드릴게요. 컴 아래의 왼쪽 줄이를 감지기 빼르고 세워 달리면 왼쪽 그자리에 가려히 있는 원상을 관성의 법칙이라고 할 수 있어요.
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- 버전 관리 카드 -->
-        <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 transition-all hover:shadow-lg">
-          <div class="flex flex-col md:flex-row gap-8">
-            <div class="md:w-1/2">
-              <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center">
-                  <i class="fas fa-code-branch text-white text-lg"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900" data-i18n="versionManagement">버전 관리</h3>
+      <!-- 이미지 이해 섹션 -->
+      <div>
+        <h3 class="text-2xl font-bold mb-6" data-i18n="imageTitle">이미지를 이해하는 비전 모델 활용하기</h3>
+        <p class="text-lg text-gray-600 mb-8" data-i18n="imageDesc">
+          HyperCLOVA X 비전 모델은 이미지를 비롯해 문서, 표 등 다양한 형식을 이해할 수 있습니다.
+        </p>
+        
+        <div class="relative bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl p-12 overflow-hidden">
+          <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-purple-100/50 to-transparent"></div>
+          
+          <!-- 이미지 이해 대화형 UI -->
+          <div class="relative z-10 flex flex-col gap-8">
+            <div class="flex items-start gap-4">
+              <div class="bg-blue-500 text-white px-6 py-3 rounded-full text-sm">
+                "상황에 대해 설명해줘"
               </div>
-              <p class="text-gray-600 mb-6">
-                게임 버전을 체계적으로 관리하고 업데이트를 효율적으로 배포하세요.
-                자동화된 배포 시스템으로 시간을 절약할 수 있습니다.
-              </p>
-              <ul class="space-y-3">
-                <li class="flex items-center gap-2 text-gray-700">
-                  <i class="fas fa-check text-purple-600"></i>
-                  <span>버전 번호 체계적 관리</span>
-                </li>
-                <li class="flex items-center gap-2 text-gray-700">
-                  <i class="fas fa-check text-purple-600"></i>
-                  <span>강제/선택적 업데이트 설정</span>
-                </li>
-                <li class="flex items-center gap-2 text-gray-700">
-                  <i class="fas fa-check text-purple-600"></i>
-                  <span>패치 서버 연동 자동 배포</span>
-                </li>
-              </ul>
-            </div>
-            <div class="md:w-1/2">
-              <img src="https://via.placeholder.com/600x300/7E22CE/FFFFFF?text=버전+관리" alt="버전 관리" class="rounded-lg shadow-lg w-full">
-            </div>
-          </div>
-        </div>
-
-        <!-- 런처 UI 관리 카드 -->
-        <div class="bg-gradient-to-r from-green-50 to-teal-50 rounded-2xl p-8 transition-all hover:shadow-lg">
-          <div class="flex flex-col md:flex-row gap-8">
-            <div class="md:w-1/2">
-              <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
-                  <i class="fas fa-palette text-white text-lg"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900" data-i18n="uiManagement">런처 UI 관리</h3>
+              <div class="bg-white p-4 rounded-lg shadow-md">
+                <i class="fas fa-image text-4xl text-blue-500"></i>
               </div>
-              <p class="text-gray-600 mb-6">
-                게임 런처의 UI를 직관적으로 관리하고 커스터마이징하세요.
-                브랜드 아이덴티티에 맞는 디자인을 구현할 수 있습니다.
-              </p>
-              <ul class="space-y-3">
-                <li class="flex items-center gap-2 text-gray-700">
-                  <i class="fas fa-check text-green-600"></i>
-                  <span>로고 및 배경 이미지 커스터마이징</span>
-                </li>
-                <li class="flex items-center gap-2 text-gray-700">
-                  <i class="fas fa-check text-green-600"></i>
-                  <span>버튼 스타일 및 테마 설정</span>
-                </li>
-                <li class="flex items-center gap-2 text-gray-700">
-                  <i class="fas fa-check text-green-600"></i>
-                  <span>공지사항 및 뉴스 영역 관리</span>
-                </li>
-              </ul>
             </div>
-            <div class="md:w-1/2">
-              <img src="https://via.placeholder.com/600x300/059669/FFFFFF?text=런처+UI+관리" alt="런처 UI 관리" class="rounded-lg shadow-lg w-full">
+            
+            <div class="flex flex-col items-end gap-4">
+              <div class="bg-pink-500 text-white px-6 py-3 rounded-full text-sm max-w-lg">
+                사진은 야구장의 모습을 보여주고 있습니다. 우키성의 조명이 켜져 있는 것으로 보아 야간 경기가 진행 중인것으로 보입니다.
+              </div>
             </div>
           </div>
         </div>
@@ -515,108 +610,13 @@
       </div>
     </div>
 
-    <!-- CTA 섹션 -->
-    <div class="bg-indigo-600 text-white py-12">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl font-bold mb-3">지금 바로 GamePot Studio를 시작하세요</h2>
-        <p class="text-base text-indigo-200 mb-3">더 효율적인 게임 런처 관리와 배포를 경험해보세요.</p>        
-        <div class="flex flex-wrap justify-center gap-3">
-          <a href="#download" class="bg-white text-indigo-600 px-5 py-2 rounded-md text-sm font-medium hover:bg-gray-100 flex items-center">
-            <i class="fab fa-windows mr-1"></i>
-            <span>Windows</span>
-            <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full ml-2">0원</span>
-          </a>
-          <a href="#download" class="bg-white text-indigo-600 px-5 py-2 rounded-md text-sm font-medium hover:bg-gray-100 flex items-center">
-            <i class="fab fa-apple mr-1"></i>
-            <span>macOS</span>
-            <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full ml-2">0원</span>
-          </a>
-          <a href="#download" class="bg-white text-indigo-600 px-5 py-2 rounded-md text-sm font-medium hover:bg-gray-100 flex items-center">
-            <i class="fab fa-linux mr-1"></i>
-            <span>Linux</span>
-            <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full ml-2">0원</span>
-          </a>
-          <a href="#" class="border border-white text-white px-5 py-2 rounded-md text-sm font-medium hover:bg-indigo-700">
-            문의하기
-          </a>
-        </div>
-      </div>
-    </div>
-
+    
     <!-- 푸터 -->
-    <footer class="bg-white border-t border-gray-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <!-- 로고 및 소개 -->
-          <div class="col-span-1">
-            <div class="flex items-center mb-4">
-              <img src="https://www.ncloud.com/public/img/logo-m.png" alt="GamePot Studio" class="h-6">
-            </div>
-            <p class="text-sm text-gray-600 mb-4">게임 런처의 통합 관리 솔루션</p>
-            <div class="flex space-x-4">
-              <a href="#" class="text-gray-400 hover:text-gray-600">
-                <i class="fab fa-github text-lg"></i>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-gray-600">
-                <i class="fab fa-facebook text-lg"></i>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-gray-600">
-                <i class="fab fa-youtube text-lg"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- 제품 -->
-          <div>
-            <h3 class="text-sm font-medium text-gray-900 mb-4" data-i18n="footer.product">제품</h3>
-            <ul class="space-y-3">
-              <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600" data-i18n="features">기능 소개</a></li>
-              <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600" data-i18n="pricing">요금 안내</a></li>
-              <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600" data-i18n="download">다운로드</a></li>
-              <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600">API 문서</a></li>
-            </ul>
-          </div>
-
-          <!-- 고객지원 -->
-          <div>
-            <h3 class="text-sm font-medium text-gray-900 mb-4" data-i18n="footer.support">고객지원</h3>
-            <ul class="space-y-3">
-              <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600">기술 문서</a></li>
-              <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600">FAQ</a></li>
-              <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600">공지사항</a></li>
-              <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600">문의하기</a></li>
-            </ul>
-          </div>
-
-          <!-- 회사 소개 -->
-          <div>
-            <h3 class="text-sm font-medium text-gray-900 mb-4" data-i18n="footer.company">회사 소개</h3>
-            <ul class="space-y-3">
-              <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600">회사 소개</a></li>
-              <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600">채용 정보</a></li>
-              <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600">보도자료</a></li>
-              <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600">연락처</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- 하단 정보 -->
-        <div class="mt-12 pt-8 border-t border-gray-200">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="text-sm text-gray-600">
-              <p>사업자등록번호: 123-45-67890 | 대표이사: 홍길동</p>
-              <p>주소: 서울특별시 강남구 테헤란로 129</p>
-              <p>전화: 1544-0000 | 이메일: support@gamepot.com</p>
-            </div>
-            <div class="md:text-right">
-              <div class="flex md:justify-end space-x-4">
-                <a href="#" class="text-sm text-gray-600 hover:text-blue-600" data-i18n="footer.privacy">개인정보처리방침</a>
-                <a href="#" class="text-sm text-gray-600 hover:text-blue-600" data-i18n="footer.terms">이용약관</a>
-                <a href="#" class="text-sm text-gray-600 hover:text-blue-600" data-i18n="footer.legal">법적고지</a>
-              </div>
-              <p class="text-sm text-gray-500 mt-2">&copy; 2024 GamePot Studio. All rights reserved.</p>
-            </div>
-          </div>
+    <footer class="bg-[#1a1a1a] text-gray-400">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <!-- 회사 정보 -->
+        <div class="text-sm text-gray-500 space-y-1">
+          <p class="mt-4">© NAVER Cloud Corp. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
@@ -669,9 +669,25 @@
         // 모바일 메뉴 토글
         const mobileMenuButton = document.getElementById('mobileMenuButton');
         const mobileMenu = document.getElementById('mobileMenu');
-
-        mobileMenuButton.addEventListener('click', () => {
+        
+        mobileMenuButton.addEventListener('click', function() {
           mobileMenu.classList.toggle('hidden');
+          mobileMenu.classList.toggle('show');
+        });
+
+        // TOP 버튼 클릭 시 최상단으로 스크롤
+        const topButton = document.querySelector('.mobile-bottom-nav-item:last-child');
+        topButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 화면 크기 변경 시 모바일 메뉴 처리
+        window.addEventListener('resize', function() {
+          if (window.innerWidth >= 768) {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('show');
+          }
         });
 
         // 언어 선택 기능 구현
@@ -692,12 +708,23 @@
             signup: '회원가입',
             features: '기능',
             download: '다운로드',
-            benefits: '장점',
             serviceTitle: '서비스 특징',
-            serviceDesc: 'GamePot Studio는 AI 기반의 통합된 서비스를 손쉽게 만들 수 있는 개발 도구입니다.',
+            serviceDesc: 'GamePot Studio는 AI 기반의 통합된 서비스를 손쉽게 만들 수 있는 개발 도구입니다. GamePot Studio를 통해 생산성을 향상하고 경쟁력을 강화할 수 있으며, 현재 1,000개 이상의 기업과 기관이 활용 중입니다.',
             buildManagement: '빌드 관리',
+            buildManagementDesc: '게임 빌드 파일을 효율적으로 관리하고 배포할 수 있습니다. 다양한 플랫폼에 대한 빌드를 한 곳에서 통합적으로 관리하세요.',
+            buildFeature1: '빌드 파일(zip, exe, app 등) 업로드 및 관리',
+            buildFeature2: '운영체제(OS) / 플랫폼별 빌드 분리 등록',
+            buildFeature3: '빌드 메타정보 관리 (빌드명, 작성일, 변경 내역)',
             versionManagement: '버전 관리',
+            versionManagementDesc: '게임 버전을 체계적으로 관리하고 업데이트를 효율적으로 배포하세요. 자동화된 배포 시스템으로 시간을 절약할 수 있습니다.',
+            versionFeature1: '버전 번호 체계적 관리',
+            versionFeature2: '강제/선택적 업데이트 설정',
+            versionFeature3: '패치 서버 연동 자동 배포',
             uiManagement: '런처 UI 관리',
+            uiManagementDesc: '게임 런처의 UI를 직관적으로 관리하고 커스터마이징하세요. 브랜드 아이덴티티에 맞는 디자인을 구현할 수 있습니다.',
+            uiFeature1: '로고 및 배경 이미지 커스터마이징',
+            uiFeature2: '버튼 스타일 및 테마 설정',
+            uiFeature3: '공지사항 및 뉴스 영역 관리',
             pricing: '요금 안내',
             startNow: '지금 바로 시작하기',
             downloadWindows: 'Windows 다운로드',
@@ -718,12 +745,23 @@
             signup: 'Sign Up',
             features: 'Features',
             download: 'Download',
-            benefits: 'Benefits',
             serviceTitle: 'Service Features',
-            serviceDesc: 'GamePot Studio is a development tool that allows you to easily create AI-based integrated services.',
+            serviceDesc: 'GamePot Studio is a development tool that allows you to easily create AI-based integrated services. Through GamePot Studio, you can improve productivity and strengthen competitiveness, currently being used by more than 1,000 companies and organizations.',
             buildManagement: 'Build Management',
+            buildManagementDesc: 'Efficiently manage and deploy game build files. Manage builds for various platforms in one place.',
+            buildFeature1: 'Upload and manage build files (zip, exe, app, etc.)',
+            buildFeature2: 'Separate registration by operating system (OS) / platform',
+            buildFeature3: 'Manage build metadata (build name, creation date, change history)',
             versionManagement: 'Version Management',
+            versionManagementDesc: 'Systematically manage game versions and efficiently deploy updates. Save time with automated deployment system.',
+            versionFeature1: 'Systematic version number management',
+            versionFeature2: 'Forced/optional update settings',
+            versionFeature3: 'Automatic deployment with patch server integration',
             uiManagement: 'Launcher UI Management',
+            uiManagementDesc: 'Intuitively manage and customize the game launcher UI. Implement designs that match your brand identity.',
+            uiFeature1: 'Customize logo and background images',
+            uiFeature2: 'Button style and theme settings',
+            uiFeature3: 'Manage announcements and news sections',
             pricing: 'Pricing',
             startNow: 'Start Now',
             downloadWindows: 'Download for Windows',
@@ -798,13 +836,6 @@
         
         changeLang(initialLang);
         currentLang.textContent = initialLang.toUpperCase();
-
-        // 화면 크기 변경 시 모바일 메뉴 처리
-        window.addEventListener('resize', () => {
-          if (window.innerWidth >= 768) { // md 브레이크포인트
-            mobileMenu.classList.add('hidden');
-          }
-        });
       });
     </script>
   </body>
