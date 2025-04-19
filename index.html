@@ -63,9 +63,11 @@
         height: 100%;
         border-radius: 12px;
         overflow: hidden;
+        background: transparent;
       }
 
       .swiper-slide {
+        background: transparent;
         background-position: center;
         background-size: cover;
       }
@@ -266,7 +268,7 @@
 
       .swiper-button-next,
       .swiper-button-prev {
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: rgba(255, 255, 255, 0.2);
         padding: 2rem;
         border-radius: 9999px;
         transition: all 0.2s;
@@ -274,12 +276,32 @@
 
       .swiper-button-next:hover,
       .swiper-button-prev:hover {
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(255, 255, 255, 0.3);
       }
 
       .swiper-button-next::after,
       .swiper-button-prev::after {
         font-size: 1.5rem;
+      }
+
+      .swiper-pagination-bullet {
+        background: rgba(255, 255, 255, 0.8);
+      }
+
+      .swiper-pagination-bullet-active {
+        background: #fff;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
       }
     </style>
   </head>
@@ -330,8 +352,14 @@
 
   
     <!-- 히어로 섹션 -->
-    <div class="hero-gradient">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="relative overflow-hidden">
+      <!-- 배경 이미지 -->
+      <div class="absolute inset-0">
+        <img src="/images/background.png" alt="배경" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-blue-900/30 backdrop-blur-[2px]"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
             <div class="inline-block bg-blue-900 bg-opacity-50 rounded-full px-4 py-1 text-sm text-blue-100 mb-4">
@@ -390,21 +418,19 @@
           <div class="md:block">
             <!-- 스크린샷 슬라이더 -->
             <div class="relative">
-              <div class="absolute inset-0 bg-gradient-to-br from-blue-500/30 to-purple-500/30 rounded-2xl backdrop-blur-sm"></div>
-              <div class="swiper screenshot-slider shadow-2xl rounded-2xl overflow-hidden">
-                <div class="swiper-wrapper">
-                
+              <div class="swiper screenshot-slider rounded-2xl overflow-hidden">
+                <div class="swiper-wrapper bg-transparent">
                   <div class="swiper-slide">
-                    <img src="/images/build.png" alt="빌드 관리 화면" class="w-full h-full object-cover" />
+                    <img src="/images/build.png" alt="빌드 관리 화면" class="w-full h-full object-contain" />
                   </div>
                   <div class="swiper-slide">
-                    <img src="/images/version.png" alt="버전 관리 화면" class="w-full h-full object-cover" />
+                    <img src="/images/version.png" alt="버전 관리 화면" class="w-full h-full object-contain" />
                   </div>
                   <div class="swiper-slide">
-                    <img src="/images/filemanager.png" alt="파일 관리 화면" class="w-full h-full object-cover" />
+                    <img src="/images/filemanager.png" alt="파일 관리 화면" class="w-full h-full object-contain" />
                   </div>
                   <div class="swiper-slide">
-                    <img src="/images/designeditor.png" alt="디자인 에디터 분석 화면" class="w-full h-full object-cover" />
+                    <img src="/images/designeditor.png" alt="디자인 에디터 분석 화면" class="w-full h-full object-contain" />
                   </div>
                 </div>
                 <div class="swiper-pagination"></div>
