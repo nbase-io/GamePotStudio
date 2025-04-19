@@ -299,16 +299,16 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
             <div class="inline-block bg-blue-900 bg-opacity-50 rounded-full px-4 py-1 text-sm text-blue-100 mb-4">
-              게임 런처 통합 관리 솔루션
+              게임 빌드 통합 관리 솔루션
             </div>
             <h1 class="text-4xl font-bold tracking-tight mb-4 text-white">
-              게임 런처 관리의<br />새로운 기준
+              게임 빌드 관리의<br />새로운 기준
             </h1>
             <p class="text-base text-blue-100 mb-6 leading-relaxed">
-        GamePot Studio는 게임 런처의 빌드, 버전, UI를 통합적으로 관리할 수 있도록 설계된
+              GamePot Studio는 게임 빌드의 빌드, 버전, UI를 통합적으로 관리할 수 있도록 설계된
               <strong>통합 실행 프로그램</strong>입니다. Windows, macOS, Linux를 포함한 다양한 운영체제에서
-        실행 가능하며, 프로젝트 유지보수와 배포 효율성을 극대화합니다.
-      </p>
+              실행 가능하며, 프로젝트 유지보수와 배포 효율성을 극대화합니다.
+            </p>
 
             <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-4 mb-6">
               <p class="text-sm mb-3 text-center text-blue-100 font-medium">운영체제별 다운로드</p>
@@ -510,16 +510,16 @@
     </div>
 
     <!-- 다운로드 섹션 -->
-    <div class="bg-gray-100 py-12" id="download">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8">
+    <div class="bg-gray-50" id="download">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center mb-12">
           <h2 class="text-2xl font-bold text-gray-900 mb-3">운영체제별 다운로드</h2>
           <p class="text-base text-gray-600 max-w-3xl mx-auto">
             GamePot Studio는 다양한 운영체제를 지원합니다. 아래에서 원하는 운영체제를 선택하여 다운로드하세요.
           </p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
           <!-- Windows 다운로드 -->
           <div class="bg-white p-6 rounded-lg shadow-md">
             <div class="flex items-center justify-center mb-4">
@@ -537,26 +537,21 @@
                 <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
                 <span>64비트 운영체제</span>
               </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                <span>설치 파일 크기: 18MB</span>
-              </li>
-        </ul>
-            <a href="#" class="bg-indigo-600 text-white w-full block text-center py-2 rounded-md hover:bg-indigo-700 flex items-center justify-center">
+            </ul>
+            <a href="#" class="bg-blue-600 text-white w-full block text-center py-2 rounded-md hover:bg-blue-700 flex items-center justify-center">
               <i class="fas fa-download mr-2"></i>
-              <span>Windows 다운로드</span>
-              <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full ml-2">0원</span>
+              <span>Windows (64bit)</span>
             </a>
           </div>
           
-          <!-- macOS 다운로드 -->
+          <!-- macOS Apple Silicon -->
           <div class="bg-white p-6 rounded-lg shadow-md">
             <div class="flex items-center justify-center mb-4">
               <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
                 <i class="fab fa-apple text-gray-600 text-3xl"></i>
               </div>
             </div>
-            <h3 class="text-lg font-semibold text-center mb-2">macOS</h3>
+            <h3 class="text-lg font-semibold text-center mb-2">macOS (Apple Silicon)</h3>
             <ul class="text-sm text-gray-600 space-y-2 mb-4">
               <li class="flex items-start">
                 <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
@@ -564,17 +559,36 @@
               </li>
               <li class="flex items-start">
                 <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                <span>Apple Silicon/Intel 지원</span>
+                <span>Apple Silicon</span>
+              </li>
+            </ul>
+            <a href="#" class="bg-blue-600 text-white w-full block text-center py-2 rounded-md hover:bg-blue-700 flex items-center justify-center">
+              <i class="fas fa-download mr-2"></i>
+              <span>macOS (ARM64)</span>
+            </a>
+          </div>
+
+          <!-- macOS Intel -->
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="flex items-center justify-center mb-4">
+              <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
+                <i class="fab fa-apple text-gray-600 text-3xl"></i>
+              </div>
+            </div>
+            <h3 class="text-lg font-semibold text-center mb-2">macOS (Intel)</h3>
+            <ul class="text-sm text-gray-600 space-y-2 mb-4">
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>macOS 11.0 이상</span>
               </li>
               <li class="flex items-start">
                 <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                <span>설치 파일 크기: 22MB</span>
+                <span>Intel 프로세서</span>
               </li>
             </ul>
-            <a href="#" class="bg-indigo-600 text-white w-full block text-center py-2 rounded-md hover:bg-indigo-700 flex items-center justify-center">
+            <a href="#" class="bg-blue-600 text-white w-full block text-center py-2 rounded-md hover:bg-blue-700 flex items-center justify-center">
               <i class="fas fa-download mr-2"></i>
-              <span>macOS 다운로드</span>
-              <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full ml-2">0원</span>
+              <span>macOS (x64)</span>
             </a>
           </div>
           
@@ -595,26 +609,108 @@
                 <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
                 <span>64비트 운영체제</span>
               </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                <span>설치 파일 크기: 16MB</span>
-              </li>
             </ul>
-            <a href="#" class="bg-indigo-600 text-white w-full block text-center py-2 rounded-md hover:bg-indigo-700 flex items-center justify-center">
+            <a href="#" class="bg-blue-600 text-white w-full block text-center py-2 rounded-md hover:bg-blue-700 flex items-center justify-center">
               <i class="fas fa-download mr-2"></i>
-              <span>Linux 다운로드</span>
-              <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full ml-2">0원</span>
+              <span>Linux (x64)</span>
             </a>
           </div>
         </div>
       </div>
     </div>
 
-    
+    <!-- AI 도구 섹션 -->
+    <div class="bg-[#f8f9fa] py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold mb-4">익숙플로의 AI 제작을 도와줄 도구들</h2>
+        <p class="text-gray-600 mb-12">토큰 개선, 요약, 문단 나누기, 임베딩, 번역 등 CLOVA Studio에서 제공하는 특화 도구와 API를 활용하여 손쉽게 AI를 개발할 수 있습니다. 또한, CLOVA Studio에서 제공하는 성능을 확인하고 작업물을 보관할 수 있습니다.</p>
+
+        <!-- AI 도구 다이어그램 -->
+        <div class="bg-white rounded-xl p-12 mb-20 shadow-lg">
+          <div class="grid grid-cols-3 gap-8 items-center justify-items-center relative">
+            <div class="flex flex-col items-center">
+              <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mb-3 shadow-md hover:shadow-lg transition-shadow">
+                <img src="/images/icon-split.svg" alt="문단 나누기" class="w-10 h-10">
+              </div>
+              <span class="text-sm font-medium">문단 나누기</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mb-3 shadow-md hover:shadow-lg transition-shadow">
+                <img src="/images/icon-data.svg" alt="데이터 확장" class="w-10 h-10">
+              </div>
+              <span class="text-sm font-medium">데이터 확장</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mb-3 shadow-md hover:shadow-lg transition-shadow">
+                <img src="/images/icon-embedding.svg" alt="임베딩" class="w-10 h-10">
+              </div>
+              <span class="text-sm font-medium">임베딩</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mb-3 shadow-md hover:shadow-lg transition-shadow">
+                <img src="/images/icon-token.svg" alt="일괄 생성" class="w-10 h-10">
+              </div>
+              <span class="text-sm font-medium">일괄 생성</span>
+            </div>
+            <div class="relative">
+              <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-xl">
+                <img src="/images/icon-tools.svg" alt="AI 도구" class="w-12 h-12">
+              </div>
+              <!-- 점선 연결 -->
+              <div class="absolute inset-0 -z-10">
+                <svg class="w-full h-full" viewBox="0 0 200 200">
+                  <path d="M100,0 L200,100 L100,200 L0,100 Z" stroke="#e5e7eb" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+                </svg>
+              </div>
+            </div>
+            <div class="flex flex-col items-center">
+              <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mb-3 shadow-md hover:shadow-lg transition-shadow">
+                <img src="/images/icon-stats.svg" alt="토큰 개선기" class="w-10 h-10">
+              </div>
+              <span class="text-sm font-medium">토큰 개선기</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 비즈니스 도구 라인업 -->
+        <h3 class="text-xl font-bold mb-6">비즈니스 도구 라인업</h3>
+        <p class="text-gray-600 mb-8">기업의 비즈니스 목적에 최적화된 하이퍼스케일 AI 개발 도구를 제공합니다.</p>
+
+        <div class="space-y-8">
+          <div class="bg-white p-8 rounded-xl">
+            <h4 class="text-lg font-bold mb-4">CLOVA Studio Exclusive</h4>
+            <p class="text-gray-600 mb-4">비즈니스에 최적화된 AI 개발 도구 CLOVA Studio에 기업의 활용 의도에 맞게 특화 모델을 만들 수 있는 SFT 튜닝 기법과 전용 인프라를 결합해 제공하는 서비스입니다. 자체 인프라 구축 없이도 고성능의 AI 서비스를 개발할 수 있으며, 짧당된 전용 인프라는 실시간 추론의 안정적인 성능과 사용량을 보장합니다.</p>
+            <p class="text-sm">* Exclusive 이용에 대한 문의사항은 <a href="#" class="text-blue-600 hover:underline">고객지원</a>으로 문의해주세요.</p>
+          </div>
+
+          <div class="bg-white p-8 rounded-xl">
+            <h4 class="text-lg font-bold mb-4">Neurocloud for HyperCLOVA X</h4>
+            <p class="text-gray-600">데이터 센터 간의 인프라 기술들을 모두 집약시킨 하이브리드 클라우드 전용 하드웨어 뉴로클라우드에 GPU 클러스터와 초대규모 AI 모델 HyperCLOVA X의 학습·운영 도구들을 탑재하여 제공하는 서비스입니다. Neurocloud for HyperCLOVA X는 고객의 데이터 센터 내에서 사내망과 연동된 네트워크 환경을 구성하기 때문에 보안 요건을 엄격하게 준수시킬 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI 개발도구 CTA -->
+    <div class="bg-gradient-to-r from-[#0A1628] to-[#0A2847] relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+        <h2 class="text-3xl font-bold text-white mb-8">비즈니스에 최적화된 하이퍼스케일 AI 개발도구</h2>
+        <div class="flex flex-wrap gap-4">
+          <a href="#" class="inline-flex px-6 py-3 bg-white text-[#1a1a1a] rounded-full hover:bg-gray-100 transition-colors">
+            이용 신청
+          </a>
+          <a href="#" class="inline-flex px-6 py-3 border border-white text-white rounded-full hover:bg-white hover:text-[#1a1a1a] transition-colors">
+            요금 계산
+          </a>
+        </div>
+      </div>
+      <!-- 사선 배경 -->
+      <div class="absolute top-0 right-0 w-full h-full" style="background: linear-gradient(135deg, transparent 50%, #0A2847 50%);"></div>
+    </div>
+
     <!-- 푸터 -->
     <footer class="bg-[#1a1a1a] text-gray-400">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <!-- 회사 정보 -->
         <div class="text-sm text-gray-500 space-y-1">
           <p class="mt-4">© NAVER Cloud Corp. All Rights Reserved.</p>
         </div>
