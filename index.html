@@ -247,6 +247,40 @@
           padding-bottom: 5rem;
         }
       }
+
+      .screenshot-thumbnail {
+        opacity: 0.6;
+        border: 2px solid transparent;
+      }
+      
+      .screenshot-thumbnail:hover {
+        opacity: 0.8;
+        transform: translateY(-2px);
+      }
+      
+      .screenshot-thumbnail.active {
+        opacity: 1;
+        border-color: #2563eb;
+        transform: translateY(-2px);
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 2rem;
+        border-radius: 9999px;
+        transition: all 0.2s;
+      }
+
+      .swiper-button-next:hover,
+      .swiper-button-prev:hover {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .swiper-button-next::after,
+      .swiper-button-prev::after {
+        font-size: 1.5rem;
+      }
     </style>
   </head>
   <body class="bg-gray-50 text-gray-800 font-sans text-sm">
@@ -355,35 +389,38 @@
           </div>
           <div class="md:block">
             <!-- 스크린샷 슬라이더 -->
-            <div class="swiper screenshot-slider shadow-2xl">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <img src="/images/launcher_background.png" alt="GamePot Studio 대시보드" />
+            <div class="relative">
+              <div class="absolute inset-0 bg-gradient-to-br from-blue-500/30 to-purple-500/30 rounded-2xl backdrop-blur-sm"></div>
+              <div class="swiper screenshot-slider shadow-2xl rounded-2xl overflow-hidden">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="/images/launcher_background.png" alt="GamePot Studio 대시보드" class="w-full h-full object-cover" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="/images/filemanager.png" alt="빌드 관리 화면" class="w-full h-full object-cover" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="/images/launcher_background.png" alt="버전 관리 화면" class="w-full h-full object-cover" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="/images/launcher_background.png" alt="런처 UI 편집 화면" class="w-full h-full object-cover" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="/images/launcher_background.png" alt="통계 분석 화면" class="w-full h-full object-cover" />
+                  </div>
                 </div>
-                <div class="swiper-slide">
-                  <img src="/images/launcher_background.png" alt="빌드 관리 화면" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="/images/launcher_background.png" alt="버전 관리 화면" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="/images/launcher_background.png" alt="런처 UI 편집 화면" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="/images/launcher_background.png" alt="통계 분석 화면" />
-                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next text-white"></div>
+                <div class="swiper-button-prev text-white"></div>
               </div>
-              <div class="swiper-pagination"></div>
-              <div class="swiper-button-next text-white"></div>
-              <div class="swiper-button-prev text-white"></div>
             </div>
             <!-- 스크린샷 썸네일 -->
-            <div class="screenshot-thumbnails mt-4">
-              <img src="/images/launcher_background.png" alt="썸네일 1" class="screenshot-thumbnail active" data-index="0">
-              <img src="/images/launcher_background.png" alt="썸네일 2" class="screenshot-thumbnail" data-index="1">
-              <img src="/images/launcher_background.png" alt="썸네일 3" class="screenshot-thumbnail" data-index="2">
-              <img src="/images/launcher_background.png" alt="썸네일 4" class="screenshot-thumbnail" data-index="3">
-              <img src="/images/launcher_background.png" alt="썸네일 5" class="screenshot-thumbnail" data-index="4">
+            <div class="screenshot-thumbnails mt-6 flex justify-center gap-4">
+              <img src="/images/launcher_background.png" alt="썸네일 1" class="screenshot-thumbnail active w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="0">
+              <img src="/images/filemanager.png" alt="썸네일 2" class="screenshot-thumbnail w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="1">
+              <img src="/images/launcher_background.png" alt="썸네일 3" class="screenshot-thumbnail w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="2">
+              <img src="/images/launcher_background.png" alt="썸네일 4" class="screenshot-thumbnail w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="3">
+              <img src="/images/launcher_background.png" alt="썸네일 5" class="screenshot-thumbnail w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="4">
             </div>
           </div>
         </div>
