@@ -115,16 +115,38 @@
               <img src="https://www.ncloud.com/public/img/logo-m.png" alt="GamePot Studio" class="h-8">
             </div>
             <div class="hidden md:flex md:space-x-2 ml-6">
-              <a href="#features" class="ncp-nav-item">기능</a>
-              <a href="#download" class="ncp-nav-item">다운로드</a>
+              <a href="#features" class="ncp-nav-item" data-i18n="features">기능</a>
+              <a href="#download" class="ncp-nav-item" data-i18n="download">다운로드</a>
             </div>
+            <!-- 모바일 메뉴 버튼 -->
+            <button type="button" class="md:hidden p-2 text-gray-600 hover:text-blue-800" id="mobileMenuButton">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
           </div>
           <div class="flex items-center space-x-4">
-            <a href="https://www.ncloud.com/login" class="text-gray-600 hover:text-blue-800 px-3 py-2 text-sm">로그인</a>
-            <a href="https://www.ncloud.com/join" class="bg-blue-800 text-white px-4 py-2 rounded text-sm hover:bg-blue-900 transition-colors">
+            <a href="https://www.ncloud.com/login" target="_blank" class="text-gray-600 hover:text-blue-800 px-3 py-2 text-sm" data-i18n="login">로그인</a>
+            <a href="https://www.ncloud.com/join" target="_blank" class="bg-blue-800 text-white px-4 py-2 rounded text-sm hover:bg-blue-900 transition-colors" data-i18n="signup">
               회원가입
             </a>
+            <div class="relative ml-3">
+              <button type="button" id="languageButton" class="flex items-center text-gray-600 hover:text-blue-800">
+                <i class="fas fa-globe"></i>
+                <span class="ml-1 text-sm" id="currentLang">KO</span>
+              </button>
+              <div id="languageDropdown" class="hidden absolute right-0 mt-2 py-2 w-32 bg-white rounded-md shadow-xl z-50">
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="ko">한국어</a>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" data-lang="en">English</a>
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
+
+      <!-- 모바일 메뉴 -->
+      <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-gray-200">
+        <div class="px-4 py-3 space-y-2">
+          <a href="#features" class="block text-gray-600 hover:text-blue-800" data-i18n="features">기능</a>
+          <a href="#download" class="block text-gray-600 hover:text-blue-800" data-i18n="download">다운로드</a>
         </div>
       </div>
     </nav>
@@ -231,8 +253,8 @@
     <!-- 주요 기능 섹션 -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14" id="features">
       <div class="text-left mb-14">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">서비스 특징</h2>
-        <p class="text-xl text-gray-600 max-w-3xl">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" data-i18n="serviceTitle">서비스 특징</h2>
+        <p class="text-xl text-gray-600 max-w-3xl" data-i18n="serviceDesc">
           GamePot Studio는 AI 기반의 통합된 서비스를 손쉽게 만들 수 있는 개발 도구입니다. 
           GamePot Studio를 통해 생산성을 향상하고 경쟁력을 강화할 수 있으며, 현재 1,000개 이상의 기업과 기관이 활용 중입니다.
         </p>
@@ -247,7 +269,7 @@
                 <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
                   <i class="fas fa-cubes text-white text-lg"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900">빌드 관리</h3>
+                <h3 class="text-xl font-bold text-gray-900" data-i18n="buildManagement">빌드 관리</h3>
               </div>
               <p class="text-gray-600 mb-6">
                 게임 빌드 파일을 효율적으로 관리하고 배포할 수 있습니다. 
@@ -282,7 +304,7 @@
                 <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center">
                   <i class="fas fa-code-branch text-white text-lg"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900">버전 관리</h3>
+                <h3 class="text-xl font-bold text-gray-900" data-i18n="versionManagement">버전 관리</h3>
               </div>
               <p class="text-gray-600 mb-6">
                 게임 버전을 체계적으로 관리하고 업데이트를 효율적으로 배포하세요.
@@ -317,7 +339,7 @@
                 <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
                   <i class="fas fa-palette text-white text-lg"></i>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900">런처 UI 관리</h3>
+                <h3 class="text-xl font-bold text-gray-900" data-i18n="uiManagement">런처 UI 관리</h3>
               </div>
               <p class="text-gray-600 mb-6">
                 게임 런처의 UI를 직관적으로 관리하고 커스터마이징하세요.
@@ -546,18 +568,18 @@
 
           <!-- 제품 -->
           <div>
-            <h3 class="text-sm font-medium text-gray-900 mb-4">제품</h3>
+            <h3 class="text-sm font-medium text-gray-900 mb-4" data-i18n="footer.product">제품</h3>
             <ul class="space-y-3">
-              <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600">기능 소개</a></li>
-              <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600">요금 안내</a></li>
-              <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600">다운로드</a></li>
+              <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600" data-i18n="features">기능 소개</a></li>
+              <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600" data-i18n="pricing">요금 안내</a></li>
+              <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600" data-i18n="download">다운로드</a></li>
               <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600">API 문서</a></li>
             </ul>
           </div>
 
           <!-- 고객지원 -->
           <div>
-            <h3 class="text-sm font-medium text-gray-900 mb-4">고객지원</h3>
+            <h3 class="text-sm font-medium text-gray-900 mb-4" data-i18n="footer.support">고객지원</h3>
             <ul class="space-y-3">
               <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600">기술 문서</a></li>
               <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600">FAQ</a></li>
@@ -568,7 +590,7 @@
 
           <!-- 회사 소개 -->
           <div>
-            <h3 class="text-sm font-medium text-gray-900 mb-4">회사 소개</h3>
+            <h3 class="text-sm font-medium text-gray-900 mb-4" data-i18n="footer.company">회사 소개</h3>
             <ul class="space-y-3">
               <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600">회사 소개</a></li>
               <li><a href="#" class="text-sm text-gray-600 hover:text-blue-600">채용 정보</a></li>
@@ -588,9 +610,9 @@
             </div>
             <div class="md:text-right">
               <div class="flex md:justify-end space-x-4">
-                <a href="#" class="text-sm text-gray-600 hover:text-blue-600">개인정보처리방침</a>
-                <a href="#" class="text-sm text-gray-600 hover:text-blue-600">이용약관</a>
-                <a href="#" class="text-sm text-gray-600 hover:text-blue-600">법적고지</a>
+                <a href="#" class="text-sm text-gray-600 hover:text-blue-600" data-i18n="footer.privacy">개인정보처리방침</a>
+                <a href="#" class="text-sm text-gray-600 hover:text-blue-600" data-i18n="footer.terms">이용약관</a>
+                <a href="#" class="text-sm text-gray-600 hover:text-blue-600" data-i18n="footer.legal">법적고지</a>
               </div>
               <p class="text-sm text-gray-500 mt-2">&copy; 2024 GamePot Studio. All rights reserved.</p>
             </div>
@@ -641,6 +663,146 @@
           const activeThumb = document.querySelector(`.screenshot-thumbnail[data-index="${realIndex}"]`);
           if (activeThumb) {
             activeThumb.classList.add('active');
+          }
+        });
+
+        // 모바일 메뉴 토글
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuButton.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+
+        // 언어 선택 기능 구현
+        const languageButton = document.getElementById('languageButton');
+        const languageDropdown = document.getElementById('languageDropdown');
+        const currentLang = document.getElementById('currentLang');
+
+        // 브라우저 언어 감지
+        function detectBrowserLanguage() {
+          const browserLang = navigator.language || navigator.userLanguage;
+          return browserLang.toLowerCase().startsWith('ko') ? 'ko' : 'en';
+        }
+
+        // 언어 텍스트 데이터
+        const translations = {
+          ko: {
+            login: '로그인',
+            signup: '회원가입',
+            features: '기능',
+            download: '다운로드',
+            benefits: '장점',
+            serviceTitle: '서비스 특징',
+            serviceDesc: 'GamePot Studio는 AI 기반의 통합된 서비스를 손쉽게 만들 수 있는 개발 도구입니다.',
+            buildManagement: '빌드 관리',
+            versionManagement: '버전 관리',
+            uiManagement: '런처 UI 관리',
+            pricing: '요금 안내',
+            startNow: '지금 바로 시작하기',
+            downloadWindows: 'Windows 다운로드',
+            downloadMac: 'macOS 다운로드',
+            downloadLinux: 'Linux 다운로드',
+            inquire: '문의하기',
+            footer: {
+              product: '제품',
+              support: '고객지원',
+              company: '회사 소개',
+              terms: '이용약관',
+              privacy: '개인정보처리방침',
+              legal: '법적고지'
+            }
+          },
+          en: {
+            login: 'Login',
+            signup: 'Sign Up',
+            features: 'Features',
+            download: 'Download',
+            benefits: 'Benefits',
+            serviceTitle: 'Service Features',
+            serviceDesc: 'GamePot Studio is a development tool that allows you to easily create AI-based integrated services.',
+            buildManagement: 'Build Management',
+            versionManagement: 'Version Management',
+            uiManagement: 'Launcher UI Management',
+            pricing: 'Pricing',
+            startNow: 'Start Now',
+            downloadWindows: 'Download for Windows',
+            downloadMac: 'Download for macOS',
+            downloadLinux: 'Download for Linux',
+            inquire: 'Contact Us',
+            footer: {
+              product: 'Product',
+              support: 'Support',
+              company: 'Company',
+              terms: 'Terms of Service',
+              privacy: 'Privacy Policy',
+              legal: 'Legal Notice'
+            }
+          }
+        };
+
+        // 언어 드롭다운 토글
+        languageButton.addEventListener('click', () => {
+          languageDropdown.classList.toggle('hidden');
+        });
+
+        // 언어 선택 시 처리
+        document.querySelectorAll('#languageDropdown a').forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const selectedLang = e.target.dataset.lang;
+            currentLang.textContent = selectedLang.toUpperCase();
+            languageDropdown.classList.add('hidden');
+            
+            // 선택된 언어로 텍스트 변경
+            changeLang(selectedLang);
+          });
+        });
+
+        // 드롭다운 외부 클릭 시 닫기
+        document.addEventListener('click', (e) => {
+          if (!languageButton.contains(e.target)) {
+            languageDropdown.classList.add('hidden');
+          }
+          // 모바일 메뉴 외부 클릭 시 닫기
+          if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+            mobileMenu.classList.add('hidden');
+          }
+        });
+
+        // 언어 변경 함수
+        function changeLang(lang) {
+          const elements = document.querySelectorAll('[data-i18n]');
+          elements.forEach(element => {
+            const key = element.dataset.i18n;
+            if (translations[lang] && translations[lang][key]) {
+              element.textContent = translations[lang][key];
+            }
+          });
+
+          // URL에 언어 파라미터 추가
+          const url = new URL(window.location.href);
+          url.searchParams.set('lang', lang);
+          window.history.pushState({}, '', url);
+
+          // 언어 설정 저장
+          localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // 초기 언어 설정
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlLang = urlParams.get('lang');
+        const savedLang = localStorage.getItem('preferredLanguage');
+        const browserLang = detectBrowserLanguage();
+        const initialLang = urlLang || savedLang || browserLang;
+        
+        changeLang(initialLang);
+        currentLang.textContent = initialLang.toUpperCase();
+
+        // 화면 크기 변경 시 모바일 메뉴 처리
+        window.addEventListener('resize', () => {
+          if (window.innerWidth >= 768) { // md 브레이크포인트
+            mobileMenu.classList.add('hidden');
           }
         });
       });
