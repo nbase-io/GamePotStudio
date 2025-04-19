@@ -307,31 +307,38 @@
   </head>
   <body class="bg-gray-50 text-gray-800 font-sans text-sm">
     <!-- 네비게이션 바 -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <nav class="bg-black text-white sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
           <div class="flex items-center">
             <div class="flex-shrink-0 flex items-center">
               <a href="/">
-                <img src="https://www.ncloud.com/public/img/logo-m.png" alt="GamePot Studio" class="h-8">
+                <img src="/images/logo.png" alt="GamePot Studio" class="h-5">
               </a>
             </div>
-            <div class="hidden md:flex md:space-x-2 ml-6">
-              <a href="#features" class="ncp-nav-item" data-i18n="features">기능</a>
-              <a href="#download" class="ncp-nav-item" data-i18n="download">다운로드</a>
+            <div class="hidden md:flex md:space-x-6 ml-10">
+              <a href="#features" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium" data-i18n="features">기능</a>
+              <a href="#download" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium" data-i18n="download">다운로드</a>
             </div>
           </div>
           <div class="flex items-center space-x-4">
-            <!-- 데스크톱 버전 로그인/가입 버튼 -->
-            <div class="hidden md:flex items-center space-x-4">
-              <a href="https://www.ncloud.com/login" target="_blank" class="text-gray-600 hover:text-blue-800 px-3 py-2 text-sm" data-i18n="login">로그인</a>
-              <a href="https://www.ncloud.com/join" target="_blank" class="bg-blue-800 text-white px-4 py-2 rounded text-sm hover:bg-blue-900 transition-colors" data-i18n="signup">
-                회원가입
-              </a>
+            <!-- 언어 선택 -->
+            <div class="hidden md:flex items-center">
+              <button id="languageButton" class="flex items-center text-gray-300 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                </svg>
+                <span id="currentLang">한국어</span>
+              </button>
+              <!-- 언어 드롭다운 메뉴 -->
+              <div id="languageDropdown" class="hidden absolute mt-2 w-48 bg-black rounded-md shadow-lg py-1 z-50 top-12 right-4">
+                <a href="#" data-lang="ko" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">한국어</a>
+                <a href="#" data-lang="en" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">English</a>
+              </div>
             </div>
             <!-- 모바일 메뉴 버튼 -->
             <div class="flex md:hidden">
-              <button type="button" class="text-gray-600 hover:text-blue-800" id="mobileMenuButton">
+              <button type="button" class="text-gray-300 hover:text-white" id="mobileMenuButton">
                 <i class="fas fa-bars text-xl"></i>
               </button>
             </div>
@@ -341,10 +348,25 @@
 
       <!-- 모바일 메뉴 -->
       <div id="mobileMenu" class="hidden md:hidden">
-        <div class="bg-white">
+        <div class="bg-black border-t border-gray-700">
           <div class="px-4 py-3 space-y-1">
-            <a href="https://www.ncloud.com/login" target="_blank" class="block py-2 text-base text-gray-600" data-i18n="login">로그인</a>
-            <a href="https://www.ncloud.com/join" target="_blank" class="block py-2 text-base text-gray-600" data-i18n="signup">회원가입</a>
+            <a href="#features" class="block px-3 py-2 text-base text-gray-300 hover:text-white" data-i18n="features">기능</a>
+            <a href="#download" class="block px-3 py-2 text-base text-gray-300 hover:text-white" data-i18n="download">다운로드</a>
+            <div class="pt-4 pb-3 border-t border-gray-700">
+              <div class="mt-3 px-3">
+                <button class="flex items-center text-gray-300 hover:text-white" id="mobileLangButton">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                  </svg>
+                  <span>언어 선택</span>
+                </button>
+                <!-- 모바일 언어 드롭다운 -->
+                <div id="mobileLangDropdown" class="hidden mt-2 pl-6 space-y-1">
+                  <a href="#" data-lang="ko" class="block py-1 text-sm text-gray-300 hover:text-white">한국어</a>
+                  <a href="#" data-lang="en" class="block py-1 text-sm text-gray-300 hover:text-white">English</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -459,131 +481,74 @@
         </p>
       </div>
 
-      <!-- 빌드 관리 섹션 -->
-      <div class="mb-20">
-        <h3 class="text-2xl font-bold mb-6">빌드 관리</h3>
-        <p class="text-lg text-gray-600 mb-8">
-          게임 빌드 파일을 효율적으로 관리하고 배포할 수 있습니다. 다양한 플랫폼에 대한 빌드를 한 곳에서 통합적으로 관리하세요.
-        </p>
-        
-        <div class="relative bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl p-12 overflow-hidden">
-          <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-blue-100/50 to-transparent"></div>
-          
-          <div class="relative z-10 space-y-6">
-            <div class="bg-white bg-opacity-90 backdrop-blur-sm p-6 rounded-2xl shadow-lg max-w-lg">
-              <h4 class="text-lg font-semibold mb-4">주요 기능</h4>
-              <ul class="space-y-3">
-                <li class="flex items-start">
-                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
-                  <span>빌드 파일(zip, exe, app 등) 업로드 및 관리</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
-                  <span>운영체제(OS) / 플랫폼별 빌드 분리 등록</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
-                  <span>빌드 메타정보 관리 (빌드명, 작성일, 변경 내역)</span>
-                </li>
-              </ul>
-            </div>
+      <!-- 기능 카드 그리드 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- 빌드 관리 카드 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-16 h-16 mb-6 flex items-center justify-center">
+            <img src="/images/icon-build.png" alt="빌드 관리" class="w-full h-full object-contain" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect width=\'80\' height=\'80\' rx=\'40\' fill=\'%23E3EFFF\'/%3E%3Cpath d=\'M40 28L52 35.5V50.5L40 58L28 50.5V35.5L40 28Z\' fill=\'%230066FF\'/%3E%3C/svg%3E';">
           </div>
+          <h3 class="text-xl font-bold mb-3">빌드 관리</h3>
+          <p class="text-gray-600">
+            게임 빌드 파일을 효율적으로 관리하고 다양한 플랫폼에 배포할 수 있습니다. 빌드 파일(zip, exe, app 등)을 간편하게 업로드하고, 운영체제(OS)별로 빌드를 분리하여 등록할 수 있습니다. 또한 빌드 버전, 작성 일자, 변경 내역 등의 메타데이터를 체계적으로 관리하여 팀 내 협업을 원활하게 합니다.
+          </p>
         </div>
-      </div>
 
-      <!-- 버전 관리 섹션 -->
-      <div class="mb-20">
-        <h3 class="text-2xl font-bold mb-6">버전 관리</h3>
-        <p class="text-lg text-gray-600 mb-8">
-          게임 버전을 체계적으로 관리하고 업데이트를 효율적으로 배포하세요. 자동화된 배포 시스템으로 시간을 절약할 수 있습니다.
-        </p>
-        
-        <div class="relative bg-gradient-to-r from-purple-50 to-blue-50 rounded-3xl p-12 overflow-hidden">
-          <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-purple-100/50 to-transparent"></div>
-          
-          <div class="relative z-10 space-y-6">
-            <div class="bg-white bg-opacity-90 backdrop-blur-sm p-6 rounded-2xl shadow-lg max-w-lg">
-              <h4 class="text-lg font-semibold mb-4">주요 기능</h4>
-              <ul class="space-y-3">
-                <li class="flex items-start">
-                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
-                  <span>버전 번호 체계적 관리</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
-                  <span>강제/선택적 업데이트 설정</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
-                  <span>패치 서버 연동 자동 배포</span>
-                </li>
-              </ul>
-            </div>
+        <!-- 버전 관리 카드 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-16 h-16 mb-6 flex items-center justify-center">
+            <img src="/images/icon-version.png" alt="버전 관리" class="w-full h-full object-contain" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect width=\'80\' height=\'80\' rx=\'40\' fill=\'%23E3EFFF\'/%3E%3Cpath d=\'M28 28H38M38 28V38M38 28L28 38M52 52H42M42 52V42M42 52L52 42\' stroke=\'%230066FF\' stroke-width=\'4\'/%3E%3C/svg%3E';">
           </div>
+          <h3 class="text-xl font-bold mb-3">버전 관리</h3>
+          <p class="text-gray-600">
+            게임 버전을 체계적으로 관리하고 업데이트를 효율적으로 배포하세요. 버전 번호를 자동으로 관리하여 실수를 방지하고, 강제 업데이트와 선택적 업데이트를 세밀하게 설정할 수 있습니다. 패치 서버와 연동하여 자동 배포 시스템을 구축하면 업데이트 과정이 간소화되어 개발 시간을 크게 절약할 수 있습니다.
+          </p>
         </div>
-      </div>
 
-      <!-- 파일 관리 섹션 -->
-      <div class="mb-20">
-        <h3 class="text-2xl font-bold mb-6">파일 관리</h3>
-        <p class="text-lg text-gray-600 mb-8">
-          게임 관련 파일들을 체계적으로 관리하고 필요한 곳에 즉시 배포할 수 있습니다.
-        </p>
-        
-        <div class="relative bg-gradient-to-r from-blue-50 to-indigo-50 rounded-3xl p-12 overflow-hidden">
-          <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-indigo-100/50 to-transparent"></div>
-          
-          <div class="relative z-10 space-y-6">
-            <div class="bg-white bg-opacity-90 backdrop-blur-sm p-6 rounded-2xl shadow-lg max-w-lg">
-              <h4 class="text-lg font-semibold mb-4">주요 기능</h4>
-              <ul class="space-y-3">
-                <li class="flex items-start">
-                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
-                  <span>드래그 앤 드롭으로 쉬운 파일 업로드</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
-                  <span>폴더 구조로 체계적인 파일 관리</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
-                  <span>파일 버전 히스토리 관리</span>
-                </li>
-              </ul>
-            </div>
+        <!-- 파일 관리 카드 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+          <div class="w-16 h-16 mb-6 flex items-center justify-center">
+            <img src="/images/icon-file.png" alt="파일 관리" class="w-full h-full object-contain" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect width=\'80\' height=\'80\' rx=\'40\' fill=\'%23E3EFFF\'/%3E%3Cpath d=\'M28 28H52V52H28V28Z\' fill=\'%230066FF\'/%3E%3Cpath d=\'M35 35H45M35 41H45M35 47H45\' stroke=\'white\' stroke-width=\'2\'/%3E%3C/svg%3E';">
           </div>
+          <h3 class="text-xl font-bold mb-3">파일 관리</h3>
+          <p class="text-gray-600">
+            게임 관련 파일들을 체계적으로 관리하고 필요한 곳에 즉시 배포할 수 있습니다. 드래그 앤 드롭으로 간편하게 파일을 업로드하고, 폴더 구조로 체계적인 파일 관리가 가능합니다. 또한 파일의 버전 히스토리를 추적하여 이전 버전으로 롤백이 필요할 때 신속하게 대응할 수 있으며, 파일 접근 권한을 세밀하게 설정하여 보안을 강화할 수 있습니다.
+          </p>
+          <div class="absolute bottom-0 right-0 w-1/2 h-1/3 bg-gradient-to-tl from-blue-100 to-purple-100 opacity-30 rounded-tl-3xl"></div>
         </div>
-      </div>
 
-      <!-- 디자인 에디터 섹션 -->
-      <div>
-        <h3 class="text-2xl font-bold mb-6">디자인 에디터</h3>
-        <p class="text-lg text-gray-600 mb-8">
-          게임 런처의 UI를 직관적으로 관리하고 커스터마이징하세요. 브랜드 아이덴티티에 맞는 디자인을 구현할 수 있습니다.
-        </p>
-        
-        <div class="relative bg-gradient-to-r from-indigo-50 to-blue-50 rounded-3xl p-12 overflow-hidden">
-          <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-blue-100/50 to-transparent"></div>
-          
-          <div class="relative z-10 space-y-6">
-            <div class="bg-white bg-opacity-90 backdrop-blur-sm p-6 rounded-2xl shadow-lg max-w-lg">
-              <h4 class="text-lg font-semibold mb-4">주요 기능</h4>
-              <ul class="space-y-3">
-                <li class="flex items-start">
-                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
-                  <span>로고 및 배경 이미지 커스터마이징</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
-                  <span>버튼 스타일 및 테마 설정</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
-                  <span>공지사항 및 뉴스 영역 관리</span>
-                </li>
-              </ul>
-            </div>
+        <!-- 디자인 에디터 카드 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-16 h-16 mb-6 flex items-center justify-center">
+            <img src="/images/icon-design.png" alt="디자인 에디터" class="w-full h-full object-contain" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect width=\'80\' height=\'80\' rx=\'40\' fill=\'%23E3EFFF\'/%3E%3Cpath d=\'M40 25V55M25 40H55\' stroke=\'%230066FF\' stroke-width=\'4\'/%3E%3C/svg%3E';">
           </div>
+          <h3 class="text-xl font-bold mb-3">디자인 에디터</h3>
+          <p class="text-gray-600">
+            게임 런처의 UI를 직관적으로 관리하고 브랜드에 맞게 커스터마이징하세요. 로고 및 배경 이미지를 손쉽게 변경하고, 버튼 스타일과 색상 테마를 설정하여 일관된 브랜드 경험을 제공할 수 있습니다. 공지사항 및 뉴스 영역을 유연하게 관리하여 사용자와의 소통을 강화하고, 실시간 미리보기를 통해 변경 사항을 즉시 확인할 수 있어 디자인 작업 효율성이 크게 향상됩니다.
+          </p>
+        </div>
+
+        <!-- 통계 분석 카드 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-16 h-16 mb-6 flex items-center justify-center">
+            <img src="/images/icon-stats.png" alt="통계 분석" class="w-full h-full object-contain" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect width=\'80\' height=\'80\' rx=\'40\' fill=\'%23E3EFFF\'/%3E%3Cpath d=\'M25 55V45M40 55V35M55 55V25\' stroke=\'%230066FF\' stroke-width=\'4\'/%3E%3C/svg%3E';">
+          </div>
+          <h3 class="text-xl font-bold mb-3">통계 분석</h3>
+          <p class="text-gray-600">
+            사용자의 행동 패턴을 분석하고 데이터 기반의 의사결정을 지원합니다. 빌드 다운로드 및 업데이트 현황을 실시간으로 모니터링하여 사용자 참여도를 파악할 수 있습니다. 다양한 시각화 도구(그래프, 차트 등)를 통해 복잡한 데이터를 직관적으로 이해할 수 있으며, 데이터 내보내기 기능으로 외부 분석 도구와 연동이 가능합니다. 이런 분석을 통해 게임 개발 및 서비스 전략을 지속적으로 최적화할 수 있습니다.
+          </p>
+        </div>
+
+        <!-- SDK 연동 카드 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+          <div class="w-16 h-16 mb-6 flex items-center justify-center">
+            <img src="/images/icon-sdk.png" alt="SDK 연동" class="w-full h-full object-contain" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect width=\'80\' height=\'80\' rx=\'40\' fill=\'%23E3EFFF\'/%3E%3Cpath d=\'M30 30L50 50M50 30L30 50\' stroke=\'%230066FF\' stroke-width=\'4\'/%3E%3C/svg%3E';">
+          </div>
+          <h3 class="text-xl font-bold mb-3">SDK 연동</h3>
+          <p class="text-gray-600">
+            다양한 플랫폼과 연동하여 확장성 있는 게임 서비스를 구축하세요. 주요 게임 엔진(Unity, Unreal Engine 등)과의 원활한 통합을 지원하며, 소셜 로그인, 인앱 결제, 푸시 알림 등 필수 기능을 손쉽게 구현할 수 있습니다. 또한 REST API를 통해 외부 서비스와 연동이 가능하며, 자세한 문서화와 예제 코드로 개발자 경험이 향상됩니다. 이를 통해 게임 개발 과정에서 인프라 구축에 소요되는 시간과 비용을 크게 절감할 수 있습니다.
+          </p>
+          <div class="absolute bottom-0 right-0 w-2/3 h-1/2 bg-gradient-to-tl from-pink-100 to-blue-100 opacity-40 rounded-tl-3xl"></div>
         </div>
       </div>
     </main>
@@ -823,30 +788,52 @@
         const mobileMenuButton = document.getElementById('mobileMenuButton');
         const mobileMenu = document.getElementById('mobileMenu');
         
-        mobileMenuButton.addEventListener('click', function() {
+        mobileMenuButton?.addEventListener('click', function() {
           mobileMenu.classList.toggle('hidden');
           mobileMenu.classList.toggle('show');
-        });
-
-        // TOP 버튼 클릭 시 최상단으로 스크롤
-        const topButton = document.querySelector('.mobile-bottom-nav-item:last-child');
-        topButton.addEventListener('click', function(e) {
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // 화면 크기 변경 시 모바일 메뉴 처리
-        window.addEventListener('resize', function() {
-          if (window.innerWidth >= 768) {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('show');
-          }
         });
 
         // 언어 선택 기능 구현
         const languageButton = document.getElementById('languageButton');
         const languageDropdown = document.getElementById('languageDropdown');
+        const mobileLangButton = document.getElementById('mobileLangButton');
+        const mobileLangDropdown = document.getElementById('mobileLangDropdown');
         const currentLang = document.getElementById('currentLang');
+
+        // 데스크톱 언어 드롭다운 토글
+        languageButton?.addEventListener('click', function(e) {
+          e.preventDefault();
+          languageDropdown.classList.toggle('hidden');
+        });
+
+        // 모바일 언어 드롭다운 토글
+        mobileLangButton?.addEventListener('click', function(e) {
+          e.preventDefault();
+          mobileLangDropdown.classList.toggle('hidden');
+        });
+
+        // 언어 선택 처리 함수
+        function handleLanguageSelection(e) {
+          e.preventDefault();
+          const selectedLang = e.target.dataset.lang;
+          
+          // 현재 언어 표시 업데이트
+          if (currentLang) {
+            currentLang.textContent = selectedLang === 'ko' ? '한국어' : 'English';
+          }
+          
+          // 드롭다운 닫기
+          languageDropdown.classList.add('hidden');
+          mobileLangDropdown.classList.add('hidden');
+          
+          // 언어 변경 함수 호출
+          changeLang(selectedLang);
+        }
+
+        // 언어 선택 이벤트 리스너 등록
+        document.querySelectorAll('#languageDropdown a[data-lang], #mobileLangDropdown a[data-lang]').forEach(link => {
+          link.addEventListener('click', handleLanguageSelection);
+        });
 
         // 브라우저 언어 감지
         function detectBrowserLanguage() {
@@ -857,115 +844,24 @@
         // 언어 텍스트 데이터
         const translations = {
           ko: {
-            login: '로그인',
-            signup: '회원가입',
             features: '기능',
             download: '다운로드',
-            serviceTitle: '서비스 특징',
-            serviceDesc: 'GamePot Studio는 AI 기반의 통합된 서비스를 손쉽게 만들 수 있는 개발 도구입니다. GamePot Studio를 통해 생산성을 향상하고 경쟁력을 강화할 수 있으며, 현재 1,000개 이상의 기업과 기관이 활용 중입니다.',
-            buildManagement: '빌드 관리',
-            buildManagementDesc: '게임 빌드 파일을 효율적으로 관리하고 배포할 수 있습니다. 다양한 플랫폼에 대한 빌드를 한 곳에서 통합적으로 관리하세요.',
-            buildFeature1: '빌드 파일(zip, exe, app 등) 업로드 및 관리',
-            buildFeature2: '운영체제(OS) / 플랫폼별 빌드 분리 등록',
-            buildFeature3: '빌드 메타정보 관리 (빌드명, 작성일, 변경 내역)',
-            versionManagement: '버전 관리',
-            versionManagementDesc: '게임 버전을 체계적으로 관리하고 업데이트를 효율적으로 배포하세요. 자동화된 배포 시스템으로 시간을 절약할 수 있습니다.',
-            versionFeature1: '버전 번호 체계적 관리',
-            versionFeature2: '강제/선택적 업데이트 설정',
-            versionFeature3: '패치 서버 연동 자동 배포',
-            uiManagement: '런처 UI 관리',
-            uiManagementDesc: '게임 런처의 UI를 직관적으로 관리하고 커스터마이징하세요. 브랜드 아이덴티티에 맞는 디자인을 구현할 수 있습니다.',
-            uiFeature1: '로고 및 배경 이미지 커스터마이징',
-            uiFeature2: '버튼 스타일 및 테마 설정',
-            uiFeature3: '공지사항 및 뉴스 영역 관리',
-            pricing: '요금 안내',
-            startNow: '지금 바로 시작하기',
-            downloadWindows: 'Windows 다운로드',
-            downloadMac: 'macOS 다운로드',
-            downloadLinux: 'Linux 다운로드',
-            inquire: '문의하기',
-            footer: {
-              product: '제품',
-              support: '고객지원',
-              company: '회사 소개',
-              terms: '이용약관',
-              privacy: '개인정보처리방침',
-              legal: '법적고지'
-            }
+            serviceTitle: '더욱 강력해진 GamePot Studio',
+            serviceDesc: '게임 빌드 관리부터 버전 관리, 파일 관리, 디자인 에디터까지 한 번에 관리할 수 있습니다.'
           },
           en: {
-            login: 'Login',
-            signup: 'Sign Up',
             features: 'Features',
             download: 'Download',
-            serviceTitle: 'Service Features',
-            serviceDesc: 'GamePot Studio is a development tool that allows you to easily create AI-based integrated services. Through GamePot Studio, you can improve productivity and strengthen competitiveness, currently being used by more than 1,000 companies and organizations.',
-            buildManagement: 'Build Management',
-            buildManagementDesc: 'Efficiently manage and deploy game build files. Manage builds for various platforms in one place.',
-            buildFeature1: 'Upload and manage build files (zip, exe, app, etc.)',
-            buildFeature2: 'Separate registration by operating system (OS) / platform',
-            buildFeature3: 'Manage build metadata (build name, creation date, change history)',
-            versionManagement: 'Version Management',
-            versionManagementDesc: 'Systematically manage game versions and efficiently deploy updates. Save time with automated deployment system.',
-            versionFeature1: 'Systematic version number management',
-            versionFeature2: 'Forced/optional update settings',
-            versionFeature3: 'Automatic deployment with patch server integration',
-            uiManagement: 'Launcher UI Management',
-            uiManagementDesc: 'Intuitively manage and customize the game launcher UI. Implement designs that match your brand identity.',
-            uiFeature1: 'Customize logo and background images',
-            uiFeature2: 'Button style and theme settings',
-            uiFeature3: 'Manage announcements and news sections',
-            pricing: 'Pricing',
-            startNow: 'Start Now',
-            downloadWindows: 'Download for Windows',
-            downloadMac: 'Download for macOS',
-            downloadLinux: 'Download for Linux',
-            inquire: 'Contact Us',
-            footer: {
-              product: 'Product',
-              support: 'Support',
-              company: 'Company',
-              terms: 'Terms of Service',
-              privacy: 'Privacy Policy',
-              legal: 'Legal Notice'
-            }
+            serviceTitle: 'More Powerful GamePot Studio',
+            serviceDesc: 'Manage everything from game build management to version control, file management, and design editor all in one place.'
           }
         };
-
-        // 언어 드롭다운 토글
-        languageButton.addEventListener('click', () => {
-          languageDropdown.classList.toggle('hidden');
-        });
-
-        // 언어 선택 시 처리
-        document.querySelectorAll('#languageDropdown a').forEach(link => {
-          link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const selectedLang = e.target.dataset.lang;
-            currentLang.textContent = selectedLang.toUpperCase();
-            languageDropdown.classList.add('hidden');
-            
-            // 선택된 언어로 텍스트 변경
-            changeLang(selectedLang);
-          });
-        });
-
-        // 드롭다운 외부 클릭 시 닫기
-        document.addEventListener('click', (e) => {
-          if (!languageButton.contains(e.target)) {
-            languageDropdown.classList.add('hidden');
-          }
-          // 모바일 메뉴 외부 클릭 시 닫기
-          if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
-            mobileMenu.classList.add('hidden');
-          }
-        });
 
         // 언어 변경 함수
         function changeLang(lang) {
           const elements = document.querySelectorAll('[data-i18n]');
           elements.forEach(element => {
-            const key = element.dataset.i18n;
+            const key = element.getAttribute('data-i18n');
             if (translations[lang] && translations[lang][key]) {
               element.textContent = translations[lang][key];
             }
@@ -980,6 +876,22 @@
           localStorage.setItem('preferredLanguage', lang);
         }
 
+        // 클릭 이벤트 처리 - 드롭다운 외부 클릭 시 닫기
+        document.addEventListener('click', function(e) {
+          if (languageButton && !languageButton.contains(e.target) && !languageDropdown.contains(e.target)) {
+            languageDropdown.classList.add('hidden');
+          }
+          
+          if (mobileLangButton && !mobileLangButton.contains(e.target) && !mobileLangDropdown.contains(e.target)) {
+            mobileLangDropdown.classList.add('hidden');
+          }
+          
+          // 모바일 메뉴 외부 클릭 시 닫기
+          if (mobileMenuButton && !mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+            mobileMenu.classList.add('hidden');
+          }
+        });
+
         // 초기 언어 설정
         const urlParams = new URLSearchParams(window.location.search);
         const urlLang = urlParams.get('lang');
@@ -988,7 +900,9 @@
         const initialLang = urlLang || savedLang || browserLang;
         
         changeLang(initialLang);
-        currentLang.textContent = initialLang.toUpperCase();
+        if (currentLang) {
+          currentLang.textContent = initialLang === 'ko' ? '한국어' : 'English';
+        }
       });
     </script>
   </body>
