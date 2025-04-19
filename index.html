@@ -393,20 +393,18 @@
               <div class="absolute inset-0 bg-gradient-to-br from-blue-500/30 to-purple-500/30 rounded-2xl backdrop-blur-sm"></div>
               <div class="swiper screenshot-slider shadow-2xl rounded-2xl overflow-hidden">
                 <div class="swiper-wrapper">
+                
                   <div class="swiper-slide">
-                    <img src="/images/launcher_background.png" alt="GamePot Studio 대시보드" class="w-full h-full object-cover" />
+                    <img src="/images/build.png" alt="빌드 관리 화면" class="w-full h-full object-cover" />
                   </div>
                   <div class="swiper-slide">
-                    <img src="/images/filemanager.png" alt="빌드 관리 화면" class="w-full h-full object-cover" />
+                    <img src="/images/version.png" alt="버전 관리 화면" class="w-full h-full object-cover" />
                   </div>
                   <div class="swiper-slide">
-                    <img src="/images/launcher_background.png" alt="버전 관리 화면" class="w-full h-full object-cover" />
+                    <img src="/images/filemanager.png" alt="파일 관리 화면" class="w-full h-full object-cover" />
                   </div>
                   <div class="swiper-slide">
-                    <img src="/images/launcher_background.png" alt="런처 UI 편집 화면" class="w-full h-full object-cover" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="/images/launcher_background.png" alt="통계 분석 화면" class="w-full h-full object-cover" />
+                    <img src="/images/designeditor.png" alt="디자인 에디터 분석 화면" class="w-full h-full object-cover" />
                   </div>
                 </div>
                 <div class="swiper-pagination"></div>
@@ -416,11 +414,10 @@
             </div>
             <!-- 스크린샷 썸네일 -->
             <div class="screenshot-thumbnails mt-6 flex justify-center gap-4">
-              <img src="/images/launcher_background.png" alt="썸네일 1" class="screenshot-thumbnail active w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="0">
-              <img src="/images/filemanager.png" alt="썸네일 2" class="screenshot-thumbnail w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="1">
-              <img src="/images/launcher_background.png" alt="썸네일 3" class="screenshot-thumbnail w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="2">
-              <img src="/images/launcher_background.png" alt="썸네일 4" class="screenshot-thumbnail w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="3">
-              <img src="/images/launcher_background.png" alt="썸네일 5" class="screenshot-thumbnail w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="4">
+              <img src="/images/build.png" alt="썸네일 1" class="screenshot-thumbnail active w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="0">
+              <img src="/images/version.png" alt="썸네일 2" class="screenshot-thumbnail w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="1">
+              <img src="/images/filemanager.png" alt="썸네일 3" class="screenshot-thumbnail w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="2">
+              <img src="/images/designeditor.png" alt="썸네일 4" class="screenshot-thumbnail w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="3">            
             </div>
           </div>
         </div>
@@ -430,68 +427,135 @@
     <!-- 서비스 특징 섹션 -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14" id="features">
       <div class="text-left mb-14">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4" data-i18n="serviceTitle">더욱 강력해진 CLOVA Studio</h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-4" data-i18n="serviceTitle">더욱 강력해진 GamePot Studio</h2>
         <p class="text-xl text-gray-600 max-w-3xl" data-i18n="serviceDesc">
-          더욱 강력해진 초대규모 HyperCLOVA X 모델을 탑재하여 보다 진화된 퍼포먼스를 선보입니다.
+          게임 빌드 관리부터 버전 관리, 파일 관리, 디자인 에디터까지 한 번에 관리할 수 있습니다.
         </p>
       </div>
 
-      <!-- 플레이그라운드 섹션 -->
+      <!-- 빌드 관리 섹션 -->
       <div class="mb-20">
-        <h3 class="text-2xl font-bold mb-6" data-i18n="playgroundTitle">플레이그라운드는 HyperCLOVA X 모델 활용하기</h3>
-        <p class="text-lg text-gray-600 mb-8" data-i18n="playgroundDesc">
-          인공지능이나 코딩 지식이 없어도 텍스트를 기반으로 단 몇 줄의 프롬프트 입력과 간단한 파라미터 설정으로 HyperCLOVA X 모델을 원하는 형태로 만들고, API를 붙급받아 서비스에 손쉽게 적용할 수 있습니다.
+        <h3 class="text-2xl font-bold mb-6">빌드 관리</h3>
+        <p class="text-lg text-gray-600 mb-8">
+          게임 빌드 파일을 효율적으로 관리하고 배포할 수 있습니다. 다양한 플랫폼에 대한 빌드를 한 곳에서 통합적으로 관리하세요.
         </p>
         
         <div class="relative bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl p-12 overflow-hidden">
           <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-blue-100/50 to-transparent"></div>
           
-          <!-- 시스템 프롬프트 대화형 UI -->
-          <div class="relative z-10 flex flex-col gap-8">
-            <div class="flex flex-col items-start gap-4">
-              <div class="bg-blue-500 text-white px-6 py-3 rounded-full text-sm">
-                "맥락의 맥락 설계 설명해줘"
-              </div>
-              <div class="bg-white bg-opacity-90 backdrop-blur-sm p-6 rounded-2xl shadow-lg max-w-lg">
-                <h4 class="text-lg font-semibold mb-2">시스템 프롬프트</h4>
-                <p class="text-gray-600">전화하게 답변하는 과학 선생님입니다.</p>
-              </div>
-            </div>
-            
-            <div class="flex flex-col items-end gap-4">
-              <div class="bg-pink-500 text-white px-6 py-3 rounded-full text-sm max-w-lg">
-                쉽게 설명해 드릴게요. 컴 아래의 왼쪽 줄이를 감지기 빼르고 세워 달리면 왼쪽 그자리에 가려히 있는 원상을 관성의 법칙이라고 할 수 있어요.
-              </div>
+          <div class="relative z-10 space-y-6">
+            <div class="bg-white bg-opacity-90 backdrop-blur-sm p-6 rounded-2xl shadow-lg max-w-lg">
+              <h4 class="text-lg font-semibold mb-4">주요 기능</h4>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                  <span>빌드 파일(zip, exe, app 등) 업로드 및 관리</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                  <span>운영체제(OS) / 플랫폼별 빌드 분리 등록</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                  <span>빌드 메타정보 관리 (빌드명, 작성일, 변경 내역)</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 이미지 이해 섹션 -->
-      <div>
-        <h3 class="text-2xl font-bold mb-6" data-i18n="imageTitle">이미지를 이해하는 비전 모델 활용하기</h3>
-        <p class="text-lg text-gray-600 mb-8" data-i18n="imageDesc">
-          HyperCLOVA X 비전 모델은 이미지를 비롯해 문서, 표 등 다양한 형식을 이해할 수 있습니다.
+      <!-- 버전 관리 섹션 -->
+      <div class="mb-20">
+        <h3 class="text-2xl font-bold mb-6">버전 관리</h3>
+        <p class="text-lg text-gray-600 mb-8">
+          게임 버전을 체계적으로 관리하고 업데이트를 효율적으로 배포하세요. 자동화된 배포 시스템으로 시간을 절약할 수 있습니다.
         </p>
         
-        <div class="relative bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl p-12 overflow-hidden">
+        <div class="relative bg-gradient-to-r from-purple-50 to-blue-50 rounded-3xl p-12 overflow-hidden">
           <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-purple-100/50 to-transparent"></div>
           
-          <!-- 이미지 이해 대화형 UI -->
-          <div class="relative z-10 flex flex-col gap-8">
-            <div class="flex items-start gap-4">
-              <div class="bg-blue-500 text-white px-6 py-3 rounded-full text-sm">
-                "상황에 대해 설명해줘"
-              </div>
-              <div class="bg-white p-4 rounded-lg shadow-md">
-                <i class="fas fa-image text-4xl text-blue-500"></i>
-              </div>
+          <div class="relative z-10 space-y-6">
+            <div class="bg-white bg-opacity-90 backdrop-blur-sm p-6 rounded-2xl shadow-lg max-w-lg">
+              <h4 class="text-lg font-semibold mb-4">주요 기능</h4>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                  <span>버전 번호 체계적 관리</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                  <span>강제/선택적 업데이트 설정</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                  <span>패치 서버 연동 자동 배포</span>
+                </li>
+              </ul>
             </div>
-            
-            <div class="flex flex-col items-end gap-4">
-              <div class="bg-pink-500 text-white px-6 py-3 rounded-full text-sm max-w-lg">
-                사진은 야구장의 모습을 보여주고 있습니다. 우키성의 조명이 켜져 있는 것으로 보아 야간 경기가 진행 중인것으로 보입니다.
-              </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 파일 관리 섹션 -->
+      <div class="mb-20">
+        <h3 class="text-2xl font-bold mb-6">파일 관리</h3>
+        <p class="text-lg text-gray-600 mb-8">
+          게임 관련 파일들을 체계적으로 관리하고 필요한 곳에 즉시 배포할 수 있습니다.
+        </p>
+        
+        <div class="relative bg-gradient-to-r from-blue-50 to-indigo-50 rounded-3xl p-12 overflow-hidden">
+          <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-indigo-100/50 to-transparent"></div>
+          
+          <div class="relative z-10 space-y-6">
+            <div class="bg-white bg-opacity-90 backdrop-blur-sm p-6 rounded-2xl shadow-lg max-w-lg">
+              <h4 class="text-lg font-semibold mb-4">주요 기능</h4>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                  <span>드래그 앤 드롭으로 쉬운 파일 업로드</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                  <span>폴더 구조로 체계적인 파일 관리</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                  <span>파일 버전 히스토리 관리</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 디자인 에디터 섹션 -->
+      <div>
+        <h3 class="text-2xl font-bold mb-6">디자인 에디터</h3>
+        <p class="text-lg text-gray-600 mb-8">
+          게임 런처의 UI를 직관적으로 관리하고 커스터마이징하세요. 브랜드 아이덴티티에 맞는 디자인을 구현할 수 있습니다.
+        </p>
+        
+        <div class="relative bg-gradient-to-r from-indigo-50 to-blue-50 rounded-3xl p-12 overflow-hidden">
+          <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-blue-100/50 to-transparent"></div>
+          
+          <div class="relative z-10 space-y-6">
+            <div class="bg-white bg-opacity-90 backdrop-blur-sm p-6 rounded-2xl shadow-lg max-w-lg">
+              <h4 class="text-lg font-semibold mb-4">주요 기능</h4>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                  <span>로고 및 배경 이미지 커스터마이징</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                  <span>버튼 스타일 및 테마 설정</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                  <span>공지사항 및 뉴스 영역 관리</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
