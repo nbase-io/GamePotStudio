@@ -256,7 +256,9 @@
         <div class="flex justify-between h-16">
           <div class="flex items-center">
             <div class="flex-shrink-0 flex items-center">
-              <img src="https://www.ncloud.com/public/img/logo-m.png" alt="GamePot Studio" class="h-8">
+              <a href="/">
+                <img src="https://www.ncloud.com/public/img/logo-m.png" alt="GamePot Studio" class="h-8">
+              </a>
             </div>
             <div class="hidden md:flex md:space-x-2 ml-6">
               <a href="#features" class="ncp-nav-item" data-i18n="features">기능</a>
@@ -312,21 +314,26 @@
 
             <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-4 mb-6">
               <p class="text-sm mb-3 text-center text-blue-100 font-medium">운영체제별 다운로드</p>
-              <div class="grid grid-cols-3 gap-3">
+              <div class="grid grid-cols-4 gap-3">
                 <a href="#" class="bg-white bg-opacity-90 hover:bg-opacity-100 transition-all px-3 py-2 rounded-lg text-xs font-medium text-blue-900 flex flex-col items-center justify-center group">
                   <i class="fab fa-windows text-xl mb-1 group-hover:text-blue-600"></i>
                   <span>Windows</span>
-                  <span class="bg-green-500 text-white text-xs px-2 py-0.5 rounded-full mt-1">0원</span>
+                  <span class="text-[10px] text-gray-600">(64bit)</span>
                 </a>
                 <a href="#" class="bg-white bg-opacity-90 hover:bg-opacity-100 transition-all px-3 py-2 rounded-lg text-xs font-medium text-blue-900 flex flex-col items-center justify-center group">
                   <i class="fab fa-apple text-xl mb-1 group-hover:text-blue-600"></i>
                   <span>macOS</span>
-                  <span class="bg-green-500 text-white text-xs px-2 py-0.5 rounded-full mt-1">0원</span>
+                  <span class="text-[10px] text-gray-600">(Apple Silicon)</span>
+                </a>
+                <a href="#" class="bg-white bg-opacity-90 hover:bg-opacity-100 transition-all px-3 py-2 rounded-lg text-xs font-medium text-blue-900 flex flex-col items-center justify-center group">
+                  <i class="fab fa-apple text-xl mb-1 group-hover:text-blue-600"></i>
+                  <span>macOS</span>
+                  <span class="text-[10px] text-gray-600">(Intel)</span>
                 </a>
                 <a href="#" class="bg-white bg-opacity-90 hover:bg-opacity-100 transition-all px-3 py-2 rounded-lg text-xs font-medium text-blue-900 flex flex-col items-center justify-center group">
                   <i class="fab fa-linux text-xl mb-1 group-hover:text-blue-600"></i>
                   <span>Linux</span>
-                  <span class="bg-green-500 text-white text-xs px-2 py-0.5 rounded-full mt-1">0원</span>
+                  <span class="text-[10px] text-gray-600">(x64)</span>
                 </a>
               </div>
             </div>
@@ -673,39 +680,27 @@
         </div>
 
         <!-- 비즈니스 도구 라인업 -->
-        <h3 class="text-xl font-bold mb-6">비즈니스 도구 라인업</h3>
-        <p class="text-gray-600 mb-8">기업의 비즈니스 목적에 최적화된 하이퍼스케일 AI 개발 도구를 제공합니다.</p>
+        <h3 class="text-xl font-bold mb-6">게임 개발 도구 라인업</h3>
+        <p class="text-gray-600 mb-8">게임 개발에 꼭 필요한 도구들을 추천 드립니다.</p>
 
         <div class="space-y-8">
           <div class="bg-white p-8 rounded-xl">
-            <h4 class="text-lg font-bold mb-4">CLOVA Studio Exclusive</h4>
-            <p class="text-gray-600 mb-4">비즈니스에 최적화된 AI 개발 도구 CLOVA Studio에 기업의 활용 의도에 맞게 특화 모델을 만들 수 있는 SFT 튜닝 기법과 전용 인프라를 결합해 제공하는 서비스입니다. 자체 인프라 구축 없이도 고성능의 AI 서비스를 개발할 수 있으며, 짧당된 전용 인프라는 실시간 추론의 안정적인 성능과 사용량을 보장합니다.</p>
-            <p class="text-sm">* Exclusive 이용에 대한 문의사항은 <a href="#" class="text-blue-600 hover:underline">고객지원</a>으로 문의해주세요.</p>
+            <h4 class="text-lg font-bold mb-4">네이버 클라우드 게임팟</h4>
+            <p class="text-gray-600 mb-4">게임 운영에 꼭 필요한 인증, 결제, 고객지원, 통계, 쿠폰, 광고, 커뮤니티 등 30여 가지 기능이 SDK 하나에 통합되어 제공됩니다.</p>
+            <a href="https://www.ncloud.com/product/game/gamepot" class="inline-flex px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors">
+              가이드 바로가기
+            </a>
           </div>
 
           <div class="bg-white p-8 rounded-xl">
-            <h4 class="text-lg font-bold mb-4">Neurocloud for HyperCLOVA X</h4>
-            <p class="text-gray-600">데이터 센터 간의 인프라 기술들을 모두 집약시킨 하이브리드 클라우드 전용 하드웨어 뉴로클라우드에 GPU 클러스터와 초대규모 AI 모델 HyperCLOVA X의 학습·운영 도구들을 탑재하여 제공하는 서비스입니다. Neurocloud for HyperCLOVA X는 고객의 데이터 센터 내에서 사내망과 연동된 네트워크 환경을 구성하기 때문에 보안 요건을 엄격하게 준수시킬 수 있습니다.</p>
+            <h4 class="text-lg font-bold mb-4">네이버 클라우드 Ncloud Chat</h4>
+            <p class="text-gray-600">실시간 채팅 및 메시지 시스템, 다자 간 대화 채널 구성할 수 있는 비즈니스 전용 채팅 솔루션</p>
+            <a href="https://www.ncloud.com/product/businessApplication/ncloudChat" class="inline-flex px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors">
+              가이드 바로가기
+            </a>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- AI 개발도구 CTA -->
-    <div class="bg-gradient-to-r from-[#0A1628] to-[#0A2847] relative overflow-hidden">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
-        <h2 class="text-3xl font-bold text-white mb-8">비즈니스에 최적화된 하이퍼스케일 AI 개발도구</h2>
-        <div class="flex flex-wrap gap-4">
-          <a href="#" class="inline-flex px-6 py-3 bg-white text-[#1a1a1a] rounded-full hover:bg-gray-100 transition-colors">
-            이용 신청
-          </a>
-          <a href="#" class="inline-flex px-6 py-3 border border-white text-white rounded-full hover:bg-white hover:text-[#1a1a1a] transition-colors">
-            요금 계산
-          </a>
-        </div>
-      </div>
-      <!-- 사선 배경 -->
-      <div class="absolute top-0 right-0 w-full h-full" style="background: linear-gradient(135deg, transparent 50%, #0A2847 50%);"></div>
     </div>
 
     <!-- 푸터 -->
