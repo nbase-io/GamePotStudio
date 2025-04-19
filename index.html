@@ -358,7 +358,7 @@
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                   </svg>
-                  <span>언어 선택</span>
+                  <span data-i18n="languageSelection">언어 선택</span>
                 </button>
                 <!-- 모바일 언어 드롭다운 -->
                 <div id="mobileLangDropdown" class="hidden mt-2 pl-6 space-y-1">
@@ -384,54 +384,110 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
-            <div class="inline-block bg-blue-900 bg-opacity-50 rounded-full px-4 py-1 text-sm text-blue-100 mb-4">
+            <div class="inline-block bg-blue-900 bg-opacity-50 rounded-full px-4 py-1 text-sm text-blue-100 mb-4" data-i18n="heroSubtitle">
               게임 빌드 통합 관리 솔루션
             </div>
-            <h1 class="text-4xl font-bold tracking-tight mb-4 text-white">
+            <h1 class="text-4xl font-bold tracking-tight mb-4 text-white" data-i18n="heroTitle">
               게임 빌드 관리의<br />새로운 기준
             </h1>
-            <p class="text-base text-blue-100 mb-6 leading-relaxed">
+            <p class="text-base text-blue-100 mb-6 leading-relaxed" data-i18n="heroDescription">
               GamePot Studio는 게임 빌드의 빌드, 버전, UI를 통합적으로 관리할 수 있도록 설계된
               <strong>통합 프로그램</strong>입니다. Windows, macOS, Linux를 포함한 다양한 운영체제에서
               실행 가능하며, 프로젝트 유지보수와 배포 효율성을 극대화합니다.
             </p>
 
             <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-4 mb-6">
-              <p class="text-sm mb-3 text-center text-blue-100 font-medium">운영체제별 다운로드</p>
+              
               <div class="grid grid-cols-4 gap-3">
-                <a href="#" class="bg-white bg-opacity-90 hover:bg-opacity-100 transition-all px-3 py-2 rounded-lg text-xs font-medium text-blue-900 flex flex-col items-center justify-center group">
-                  <i class="fab fa-windows text-xl mb-1 group-hover:text-blue-600"></i>
-                  <span>윈도우</span>
-                  <span class="text-[10px] text-gray-600">(64비트)</span>
-                </a>
-                <a href="#" class="bg-white bg-opacity-90 hover:bg-opacity-100 transition-all px-3 py-2 rounded-lg text-xs font-medium text-blue-900 flex flex-col items-center justify-center group">
-                  <i class="fab fa-apple text-xl mb-1 group-hover:text-blue-600"></i>
-                  <span>맥OS</span>
-                  <span class="text-[10px] text-gray-600">(애플실리콘)</span>
-                </a>
-                <a href="#" class="bg-white bg-opacity-90 hover:bg-opacity-100 transition-all px-3 py-2 rounded-lg text-xs font-medium text-blue-900 flex flex-col items-center justify-center group">
-                  <i class="fab fa-apple text-xl mb-1 group-hover:text-blue-600"></i>
-                  <span>맥OS</span>
-                  <span class="text-[10px] text-gray-600">(인텔)</span>
-                </a>
-                <a href="#" class="bg-white bg-opacity-90 hover:bg-opacity-100 transition-all px-3 py-2 rounded-lg text-xs font-medium text-blue-900 flex flex-col items-center justify-center group">
-                  <i class="fab fa-linux text-xl mb-1 group-hover:text-blue-600"></i>
-                  <span>리눅스</span>
-                  <span class="text-[10px] text-gray-600">(x64)</span>
-                </a>
+                <div class="shadow-md rounded-lg p-4 bg-white">
+                  <div class="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
+                    <i class="fab fa-windows text-4xl text-blue-600"></i>
+                  </div>
+                  <h4 class="text-lg font-medium text-center mb-2" data-i18n="windows">윈도우</h4>
+                  <ul class="text-sm text-gray-600 mb-4 space-y-2">
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-blue-500 mr-2"></i>
+                      <span data-i18n="win10orLater">윈도우 10 이상</span>
+                    </li>
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-blue-500 mr-2"></i>
+                      <span data-i18n="bit64OS">64비트 운영체제</span>
+                    </li>
+                  </ul>
+                  <a href="#" class="bg-blue-600 text-white w-full block text-center py-2 rounded-md hover:bg-blue-700 flex items-center justify-center">
+                    <i class="fas fa-download mr-2"></i>
+                    <span data-i18n="windows64">윈도우 (64비트)</span>
+                  </a>
+                </div>
+                <div class="shadow-md rounded-lg p-4 bg-white">
+                  <div class="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
+                    <i class="fab fa-apple text-4xl text-blue-600"></i>
+                  </div>
+                  <h4 class="text-lg font-medium text-center mb-2" data-i18n="macOSAppleSilicon">맥OS (애플실리콘)</h4>
+                  <ul class="text-sm text-gray-600 mb-4 space-y-2">
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-blue-500 mr-2"></i>
+                      <span data-i18n="macOS11orLater">맥OS 11.0 이상</span>
+                    </li>
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-blue-500 mr-2"></i>
+                      <span data-i18n="appleSilicon">애플실리콘</span>
+                    </li>
+                  </ul>
+                  <a href="#" class="bg-blue-600 text-white w-full block text-center py-2 rounded-md hover:bg-blue-700 flex items-center justify-center">
+                    <i class="fas fa-download mr-2"></i>
+                    <span data-i18n="macOSARM">맥OS (ARM64)</span>
+                  </a>
+                </div>
+                <div class="shadow-md rounded-lg p-4 bg-white">
+                  <div class="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
+                    <i class="fab fa-apple text-4xl text-blue-600"></i>
+                  </div>
+                  <h4 class="text-lg font-medium text-center mb-2" data-i18n="macOSIntel">맥OS (인텔)</h4>
+                  <ul class="text-sm text-gray-600 mb-4 space-y-2">
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-blue-500 mr-2"></i>
+                      <span data-i18n="macOS11orLater">맥OS 11.0 이상</span>
+                    </li>
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-blue-500 mr-2"></i>
+                      <span data-i18n="intelProcessor">인텔 프로세서</span>
+                    </li>
+                  </ul>
+                  <a href="#" class="bg-blue-600 text-white w-full block text-center py-2 rounded-md hover:bg-blue-700 flex items-center justify-center">
+                    <i class="fas fa-download mr-2"></i>
+                    <span data-i18n="macOSx64">맥OS (x64)</span>
+                  </a>
+                </div>
+                <div class="shadow-md rounded-lg p-4 bg-white">
+                  <div class="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
+                    <i class="fab fa-linux text-4xl text-blue-600"></i>
+                  </div>
+                  <h4 class="text-lg font-medium text-center mb-2" data-i18n="linux">리눅스</h4>
+                  <ul class="text-sm text-gray-600 mb-4 space-y-2">
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-blue-500 mr-2"></i>
+                      <span data-i18n="ubuntu18OrLater">우분투 18.04 LTS 이상</span>
+                    </li>
+                  </ul>
+                  <a href="#" class="bg-blue-600 text-white w-full block text-center py-2 rounded-md hover:bg-blue-700 flex items-center justify-center">
+                    <i class="fas fa-download mr-2"></i>
+                    <span data-i18n="linux64">리눅스 (x64)</span>
+                  </a>
+                </div>
               </div>
             </div>
 
 
             <div class="mt-6">
               <div class="flex flex-wrap gap-4">
-                <span class="text-blue-100 text-xs flex items-center bg-blue-800 bg-opacity-30 px-3 py-1 rounded-full">
+                <span class="text-blue-100 text-xs flex items-center bg-blue-800 bg-opacity-30 px-3 py-1 rounded-full" data-i18n="featureNoFee">
                   <i class="fas fa-check-circle mr-1"></i> 가입비, 월 이용료 없음
                 </span>
-                <span class="text-blue-100 text-xs flex items-center bg-blue-800 bg-opacity-30 px-3 py-1 rounded-full">
+                <span class="text-blue-100 text-xs flex items-center bg-blue-800 bg-opacity-30 px-3 py-1 rounded-full" data-i18n="featureAllFree">
                   <i class="fas fa-check-circle mr-1"></i> 기능 제한 없는 완전 무료
                 </span>
-                <span class="text-blue-100 text-xs flex items-center bg-blue-800 bg-opacity-30 px-3 py-1 rounded-full">
+                <span class="text-blue-100 text-xs flex items-center bg-blue-800 bg-opacity-30 px-3 py-1 rounded-full" data-i18n="featureAllOS">
                   <i class="fas fa-check-circle mr-1"></i> 모든 OS 지원
                 </span>
               </div>
@@ -443,16 +499,16 @@
               <div class="swiper screenshot-slider rounded-2xl overflow-hidden">
                 <div class="swiper-wrapper bg-transparent">
                   <div class="swiper-slide">
-                    <img src="/images/build.png" alt="빌드 관리 화면" class="w-full h-full object-contain" />
+                    <img src="/images/build.png" alt="빌드 관리 화면" data-i18n-alt="buildManagementScreen" class="w-full h-full object-contain" />
                   </div>
                   <div class="swiper-slide">
-                    <img src="/images/version.png" alt="버전 관리 화면" class="w-full h-full object-contain" />
+                    <img src="/images/version.png" alt="버전 관리 화면" data-i18n-alt="versionManagementScreen" class="w-full h-full object-contain" />
                   </div>
                   <div class="swiper-slide">
-                    <img src="/images/filemanager.png" alt="파일 관리 화면" class="w-full h-full object-contain" />
+                    <img src="/images/filemanager.png" alt="파일 관리 화면" data-i18n-alt="fileManagementScreen" class="w-full h-full object-contain" />
                   </div>
                   <div class="swiper-slide">
-                    <img src="/images/designeditor.png" alt="디자인 에디터 분석 화면" class="w-full h-full object-contain" />
+                    <img src="/images/designeditor.png" alt="디자인 에디터 분석 화면" data-i18n-alt="designEditorScreen" class="w-full h-full object-contain" />
                   </div>
                 </div>
                 <div class="swiper-pagination"></div>
@@ -462,10 +518,10 @@
             </div>
             <!-- 스크린샷 썸네일 -->
             <div class="screenshot-thumbnails mt-6 flex justify-center gap-4">
-              <img src="/images/build.png" alt="썸네일 1" class="screenshot-thumbnail active w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="0">
-              <img src="/images/version.png" alt="썸네일 2" class="screenshot-thumbnail w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="1">
-              <img src="/images/filemanager.png" alt="썸네일 3" class="screenshot-thumbnail w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="2">
-              <img src="/images/designeditor.png" alt="썸네일 4" class="screenshot-thumbnail w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="3">            
+              <img src="/images/build.png" alt="썸네일 1" data-i18n-alt="thumbnail1" class="screenshot-thumbnail active w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="0">
+              <img src="/images/version.png" alt="썸네일 2" data-i18n-alt="thumbnail2" class="screenshot-thumbnail w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="1">
+              <img src="/images/filemanager.png" alt="썸네일 3" data-i18n-alt="thumbnail3" class="screenshot-thumbnail w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="2">
+              <img src="/images/designeditor.png" alt="썸네일 4" data-i18n-alt="thumbnail4" class="screenshot-thumbnail w-20 h-12 object-cover rounded-lg cursor-pointer transition-all" data-index="3">            
             </div>
           </div>
         </div>
@@ -488,8 +544,8 @@
           <div class="w-16 h-16 mb-6 flex items-center justify-center">
             <img src="/images/icon-build.png" alt="빌드 관리" class="w-full h-full object-contain" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect width=\'80\' height=\'80\' rx=\'40\' fill=\'%23E3EFFF\'/%3E%3Cpath d=\'M40 28L52 35.5V50.5L40 58L28 50.5V35.5L40 28Z\' fill=\'%230066FF\'/%3E%3C/svg%3E';">
           </div>
-          <h3 class="text-xl font-bold mb-3">빌드 관리</h3>
-          <p class="text-gray-600">
+          <h3 class="text-xl font-bold mb-3" data-i18n="buildManagementTitle">빌드 관리</h3>
+          <p class="text-gray-600" data-i18n="buildManagementDesc">
             게임 빌드 파일을 효율적으로 관리하고 다양한 플랫폼에 배포할 수 있습니다. OS별 빌드 등록, 메타데이터 관리로 팀 내 협업을 원활하게 합니다.
           </p>
         </div>
@@ -499,8 +555,8 @@
           <div class="w-16 h-16 mb-6 flex items-center justify-center">
             <img src="/images/icon-version.png" alt="버전 관리" class="w-full h-full object-contain" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect width=\'80\' height=\'80\' rx=\'40\' fill=\'%23E3EFFF\'/%3E%3Cpath d=\'M28 28H38M38 28V38M38 28L28 38M52 52H42M42 52V42M42 52L52 42\' stroke=\'%230066FF\' stroke-width=\'4\'/%3E%3C/svg%3E';">
           </div>
-          <h3 class="text-xl font-bold mb-3">버전 관리</h3>
-          <p class="text-gray-600">
+          <h3 class="text-xl font-bold mb-3" data-i18n="versionManagementTitle">버전 관리</h3>
+          <p class="text-gray-600" data-i18n="versionManagementDesc">
             게임 버전을 체계적으로 관리하고 업데이트를 효율적으로 배포하세요. 강제/선택적 업데이트 설정, 패치 서버 연동으로 배포 과정을 간소화합니다.
           </p>
         </div>
@@ -510,8 +566,8 @@
           <div class="w-16 h-16 mb-6 flex items-center justify-center">
             <img src="/images/icon-file.png" alt="파일 관리" class="w-full h-full object-contain" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect width=\'80\' height=\'80\' rx=\'40\' fill=\'%23E3EFFF\'/%3E%3Cpath d=\'M28 28H52V52H28V28Z\' fill=\'%230066FF\'/%3E%3Cpath d=\'M35 35H45M35 41H45M35 47H45\' stroke=\'white\' stroke-width=\'2\'/%3E%3C/svg%3E';">
           </div>
-          <h3 class="text-xl font-bold mb-3">파일 관리</h3>
-          <p class="text-gray-600">
+          <h3 class="text-xl font-bold mb-3" data-i18n="fileManagementTitle">파일 관리</h3>
+          <p class="text-gray-600" data-i18n="fileManagementDesc">
             게임 관련 파일을 체계적으로 관리합니다. 드래그 앤 드롭 업로드, 폴더 구조 관리, 버전 히스토리 추적 및 접근 권한 설정이 가능합니다.
           </p>
           
@@ -522,8 +578,8 @@
           <div class="w-16 h-16 mb-6 flex items-center justify-center">
             <img src="/images/icon-design.png" alt="디자인 에디터" class="w-full h-full object-contain" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect width=\'80\' height=\'80\' rx=\'40\' fill=\'%23E3EFFF\'/%3E%3Cpath d=\'M40 25V55M25 40H55\' stroke=\'%230066FF\' stroke-width=\'4\'/%3E%3C/svg%3E';">
           </div>
-          <h3 class="text-xl font-bold mb-3">디자인 에디터</h3>
-          <p class="text-gray-600">
+          <h3 class="text-xl font-bold mb-3" data-i18n="designEditorTitle">디자인 에디터</h3>
+          <p class="text-gray-600" data-i18n="designEditorDesc">
             런처 UI를 직관적으로 관리하세요. 로고 및 배경 이미지 변경, 테마 설정, 공지사항 관리 등 브랜드에 맞는 맞춤형 디자인을 제공합니다.
           </p>
         </div>
@@ -533,8 +589,8 @@
           <div class="w-16 h-16 mb-6 flex items-center justify-center">
             <img src="/images/icon-stats.png" alt="트래픽 분석" class="w-full h-full object-contain" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect width=\'80\' height=\'80\' rx=\'40\' fill=\'%23E3EFFF\'/%3E%3Cpath d=\'M25 55V45M40 55V35M55 55V25\' stroke=\'%230066FF\' stroke-width=\'4\'/%3E%3C/svg%3E';">
           </div>
-          <h3 class="text-xl font-bold mb-3">트래픽 분석</h3>
-          <p class="text-gray-600">
+          <h3 class="text-xl font-bold mb-3" data-i18n="trafficAnalyticsTitle">트래픽 분석</h3>
+          <p class="text-gray-600" data-i18n="trafficAnalyticsDesc">
             다운로드 현황을 실시간 모니터링이 가능하여 비용을 최적화 하실 수 있습니다. 시각화 도구, 데이터 내보내기 기능을 제공합니다.
           </p>
         </div>
@@ -544,8 +600,8 @@
           <div class="w-16 h-16 mb-6 flex items-center justify-center">
             <img src="/images/icon-sdk.png" alt="SDK 연동" class="w-full h-full object-contain" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect width=\'80\' height=\'80\' rx=\'40\' fill=\'%23E3EFFF\'/%3E%3Cpath d=\'M30 30L50 50M50 30L30 50\' stroke=\'%230066FF\' stroke-width=\'4\'/%3E%3C/svg%3E';">
           </div>
-          <h3 class="text-xl font-bold mb-3">게임팟 대시보드 (준비중)</h3>
-          <p class="text-gray-600">
+          <h3 class="text-xl font-bold mb-3" data-i18n="gamepotDashboardTitle">게임팟 대시보드 (준비중)</h3>
+          <p class="text-gray-600" data-i18n="gamepotDashboardDesc">
             게임팟 대시보드를 앱으로 바로 실행이 가능합니다. 게임팟에는 로그인, 결제, 공지사항, 커뮤니티등 게임팟에 모든 기능을 접근을 가능합니다.
           </p>
           
@@ -556,39 +612,39 @@
     <!-- 요금 안내 섹션 -->
     <div class="bg-[#f8f9fa]">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold mb-4">비용 걱정 없이 사용하세요</h2>
-        <p class="text-gray-600 mb-8">GamePot Studio는 개발자와 게임 스튜디오를 위해 <span class="text-blue-600 font-semibold">완전 무료</span>로 제공됩니다.</p>
+        <h2 class="text-2xl font-bold mb-4" data-i18n="pricingTitle">비용 걱정 없이 사용하세요</h2>
+        <p class="text-gray-600 mb-8" data-i18n="pricingSubtitle">GamePot Studio는 개발자와 게임 스튜디오를 위해 <span class="text-blue-600 font-semibold">완전 무료</span>로 제공됩니다.</p>
         
         <div class="bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
           <div class="flex justify-between items-center mb-8 pb-6 border-b">
-            <span class="text-lg font-bold text-gray-900">GamePot Studio</span>
+            <span class="text-lg font-bold text-gray-900" data-i18n="productName">GamePot Studio</span>
             <div class="flex items-baseline">
               <span class="text-4xl font-bold text-blue-600">0</span>
-              <span class="text-xl text-gray-600 ml-1">원</span>
+              <span class="text-xl text-gray-600 ml-1" data-i18n="currency">원</span>
             </div>
           </div>
           <ul class="space-y-4 mb-8">
             <li class="flex items-start">
               <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
-              <span class="text-gray-600">모든 핵심 기능 무제한 사용</span>
+              <span class="text-gray-600" data-i18n="pricingFeature1">모든 핵심 기능 무제한 사용</span>
             </li>
             <li class="flex items-start">
               <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
-              <span class="text-gray-600">무제한 빌드 및 버전 관리</span>
+              <span class="text-gray-600" data-i18n="pricingFeature2">무제한 빌드 및 버전 관리</span>
             </li>
             <li class="flex items-start">
               <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
-              <span class="text-gray-600">런처 UI 커스터마이징</span>
+              <span class="text-gray-600" data-i18n="pricingFeature3">런처 UI 커스터마이징</span>
             </li>
             <li class="flex items-start">
               <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
-              <span class="text-gray-600">기술 지원 커뮤니티 액세스</span>
+              <span class="text-gray-600" data-i18n="pricingFeature4">기술 지원 커뮤니티 액세스</span>
             </li>
           </ul>
-          <a href="#" class="bg-blue-600 text-white w-full block text-center py-3 rounded-full hover:bg-blue-700 transition-colors">
+          <a href="#" class="bg-blue-600 text-white w-full block text-center py-3 rounded-full hover:bg-blue-700 transition-colors" data-i18n="startNowButton">
             지금 바로 시작하기
           </a>
-          <p class="text-sm text-gray-500 mt-4 text-center">
+          <p class="text-sm text-gray-500 mt-4 text-center" data-i18n="pricingNote">
             신용카드 정보가 필요하지 않습니다. 가입 즉시 모든 기능을 이용할 수 있습니다.
           </p>
         </div>
@@ -596,145 +652,131 @@
     </div>
 
     <!-- 다운로드 섹션 -->
-    <div class="bg-gray-50" id="download">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="text-center mb-12">
-          <h2 class="text-2xl font-bold text-gray-900 mb-3">운영체제별 다운로드</h2>
-          <p class="text-base text-gray-600 max-w-3xl mx-auto">
-            GamePot Studio는 다양한 운영체제를 지원합니다. 아래에서 원하는 운영체제를 선택하여 다운로드하세요.
-          </p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <!-- Windows 다운로드 -->
-          <div class="bg-white p-6 rounded-lg shadow-md">
-            <div class="flex items-center justify-center mb-4">
-              <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                <i class="fab fa-windows text-blue-600 text-3xl"></i>
-              </div>
-            </div>
-            <h3 class="text-lg font-semibold text-center mb-2">윈도우</h3>
-            <ul class="text-sm text-gray-600 space-y-2 mb-4">
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                <span>윈도우 10 이상</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                <span>64비트 운영체제</span>
-              </li>
-            </ul>
-            <a href="#" class="bg-blue-600 text-white w-full block text-center py-2 rounded-md hover:bg-blue-700 flex items-center justify-center">
-              <i class="fas fa-download mr-2"></i>
-              <span>윈도우 (64비트)</span>
-            </a>
-          </div>
-          
-          <!-- macOS Apple Silicon -->
-          <div class="bg-white p-6 rounded-lg shadow-md">
-            <div class="flex items-center justify-center mb-4">
-              <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
-                <i class="fab fa-apple text-gray-600 text-3xl"></i>
-              </div>
-            </div>
-            <h3 class="text-lg font-semibold text-center mb-2">맥OS (애플실리콘)</h3>
-            <ul class="text-sm text-gray-600 space-y-2 mb-4">
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                <span>맥OS 11.0 이상</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                <span>애플실리콘</span>
-              </li>
-            </ul>
-            <a href="#" class="bg-blue-600 text-white w-full block text-center py-2 rounded-md hover:bg-blue-700 flex items-center justify-center">
-              <i class="fas fa-download mr-2"></i>
-              <span>맥OS (ARM64)</span>
-            </a>
-          </div>
-
-          <!-- macOS Intel -->
-          <div class="bg-white p-6 rounded-lg shadow-md">
-            <div class="flex items-center justify-center mb-4">
-              <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
-                <i class="fab fa-apple text-gray-600 text-3xl"></i>
-              </div>
-            </div>
-            <h3 class="text-lg font-semibold text-center mb-2">맥OS (인텔)</h3>
-            <ul class="text-sm text-gray-600 space-y-2 mb-4">
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                <span>맥OS 11.0 이상</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                <span>인텔 프로세서</span>
-              </li>
-            </ul>
-            <a href="#" class="bg-blue-600 text-white w-full block text-center py-2 rounded-md hover:bg-blue-700 flex items-center justify-center">
-              <i class="fas fa-download mr-2"></i>
-              <span>맥OS (x64)</span>
-            </a>
-          </div>
-          
-          <!-- Linux 다운로드 -->
-          <div class="bg-white p-6 rounded-lg shadow-md">
-            <div class="flex items-center justify-center mb-4">
-              <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center">
-                <i class="fab fa-linux text-white text-3xl"></i>
-              </div>
-            </div>
-            <h3 class="text-lg font-semibold text-center mb-2">리눅스</h3>
-            <ul class="text-sm text-gray-600 space-y-2 mb-4">
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                <span>우분투 18.04 LTS 이상</span>
-              </li>
-              <li class="flex items-start">
-                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                <span>64비트 운영체제</span>
-              </li>
-            </ul>
-            <a href="#" class="bg-blue-600 text-white w-full block text-center py-2 rounded-md hover:bg-blue-700 flex items-center justify-center">
-              <i class="fas fa-download mr-2"></i>
-              <span>리눅스 (x64)</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="bg-[#f8f9fa]">
+    <section class="py-20 bg-[#f8f9fa]">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- 비즈니스 도구 라인업 -->
-        <h3 class="text-xl font-bold mb-6">게임 개발 도구 라인업</h3>
-        <p class="text-gray-600 mb-8">게임 개발에 꼭 필요한 도구들을 추천 드립니다.</p>
-
-        <div class="space-y-8">
-          <div class="bg-white p-8 rounded-xl">
-            <h4 class="text-lg font-bold mb-4">네이버 클라우드 게임팟</h4>
-            <p class="text-gray-600 mb-4">게임 운영에 꼭 필요한 인증, 결제, 고객지원, 통계, 쿠폰, 광고, 커뮤니티 등 30여 가지 기능이 SDK 하나에 통합되어 제공됩니다.</p>
-            <a href="https://www.ncloud.com/product/game/gamepot" class="inline-flex px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors">
-              가이드 바로가기
+        <div class="text-center mb-12">
+          <h2 class="text-2xl font-bold mb-4" data-i18n="downloadHeader">지금 다운로드하세요</h2>
+          <p class="text-gray-600" data-i18n="downloadDescription">다양한 운영체제에서 GamePot Studio를 사용해보세요.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Windows -->
+          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <div class="flex items-center mb-6">
+              <i class="fab fa-windows text-4xl text-blue-600 mr-4"></i>
+              <div>
+                <h3 class="text-lg font-bold" data-i18n="windows">윈도우</h3>
+                <p class="text-sm text-gray-600" data-i18n="windows64">윈도우 (64비트)</p>
+              </div>
+            </div>
+            <ul class="text-sm text-gray-600 mb-6 space-y-2">
+              <li data-i18n="win10orLater">윈도우 10 이상</li>
+              <li data-i18n="bit64OS">64비트 운영체제</li>
+            </ul>
+            <a href="#" class="inline-flex px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors" data-i18n="downloadButton">
+              다운로드
             </a>
           </div>
-
-          <div class="bg-white p-8 rounded-xl">
-            <h4 class="text-lg font-bold mb-4">네이버 클라우드 Ncloud Chat</h4>
-            <p class="text-gray-600">실시간 채팅 및 메시지 시스템, 다자 간 대화 채널 구성할 수 있는 비즈니스 전용 채팅 솔루션</p>
-            <a href="https://www.ncloud.com/product/businessApplication/ncloudChat" class="inline-flex px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors">
-              가이드 바로가기
+          <!-- macOS (Apple Silicon) -->
+          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <div class="flex items-center mb-6">
+              <i class="fab fa-apple text-4xl text-blue-600 mr-4"></i>
+              <div>
+                <h3 class="text-lg font-bold" data-i18n="macOSAppleSilicon">맥OS (애플실리콘)</h3>
+                <p class="text-sm text-gray-600" data-i18n="macOSARM">맥OS (ARM64)</p>
+              </div>
+            </div>
+            <ul class="text-sm text-gray-600 mb-6 space-y-2">
+              <li data-i18n="macOS11orLater">맥OS 11.0 이상</li>
+              <li data-i18n="appleSilicon">애플실리콘</li>
+            </ul>
+            <a href="#" class="inline-flex px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors" data-i18n="downloadButton">
+              다운로드
+            </a>
+          </div>
+          <!-- macOS (Intel) -->
+          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <div class="flex items-center mb-6">
+              <i class="fab fa-apple text-4xl text-blue-600 mr-4"></i>
+              <div>
+                <h3 class="text-lg font-bold" data-i18n="macOSIntel">맥OS (인텔)</h3>
+                <p class="text-sm text-gray-600" data-i18n="macOSx64">맥OS (x64)</p>
+              </div>
+            </div>
+            <ul class="text-sm text-gray-600 mb-6 space-y-2">
+              <li data-i18n="macOS11orLater">맥OS 11.0 이상</li>
+              <li data-i18n="intelProcessor">인텔 프로세서</li>
+            </ul>
+            <a href="#" class="inline-flex px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors" data-i18n="downloadButton">
+              다운로드
+            </a>
+          </div>
+          <!-- Linux -->
+          <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <div class="flex items-center mb-6">
+              <i class="fab fa-linux text-4xl text-blue-600 mr-4"></i>
+              <div>
+                <h3 class="text-lg font-bold" data-i18n="linux">리눅스</h3>
+                <p class="text-sm text-gray-600" data-i18n="linux64">리눅스 (x64)</p>
+              </div>
+            </div>
+            <ul class="text-sm text-gray-600 mb-6 space-y-2">
+              <li data-i18n="ubuntu18OrLater">우분투 18.04 LTS 이상</li>
+              <li data-i18n="bit64OS">64비트 운영체제</li>
+            </ul>
+            <a href="#" class="inline-flex px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors" data-i18n="downloadButton">
+              다운로드
             </a>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+  
+
+    <!-- AI 도구 섹션 -->
+    <section class="bg-[#f8f9fa]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- 비즈니스 도구 라인업 -->
+        <div class="mb-16">
+          <h3 class="text-2xl font-bold mb-6" data-i18n="otherToolsTitle">게임 개발에 꼭 필요한 다른 도구들을 소개해 드립니다.</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- 도구 1 -->
+            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full transform translate-x-16 -translate-y-16"></div>
+              <h4 class="text-xl font-bold mb-4 relative z-10" data-i18n="gamepotTitle">네이버 클라우드 게임팟</h4>
+              <p class="text-gray-600 mb-6 relative z-10" data-i18n="gamepotDesc">게임 운영에 꼭 필요한 인증, 결제, 고객지원, 통계, 쿠폰, 광고, 커뮤니티 등 30여 가지 기능이 SDK 하나에 통합되어 제공됩니다.</p>
+             
+              <a href="https://www.ncloud.com/product/game/gamepot" class="inline-flex px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors" data-i18n="guideButton">
+                가이드 바로가기
+              </a>
+            </div>
+            
+            <!-- 도구 2 -->
+            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full transform translate-x-16 -translate-y-16"></div>
+              <h4 class="text-xl font-bold mb-4 relative z-10" data-i18n="ncloudChatTitle">네이버 클라우드 엔클라우드챗</h4>
+              <p class="text-gray-600 mb-6 relative z-10" data-i18n="ncloudChatDesc">실시간 채팅 및 메시지 시스템, 다자 간 대화 채널 구성할 수 있는 비즈니스 전용 채팅 솔루션</p>
+            
+              <a href="https://www.ncloud.com/product/businessApplication/ncloudChat" class="inline-flex px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors" data-i18n="guideButton">
+                가이드 바로가기
+              </a>
+            </div>
+            
+          </div>
+        </div>
+
+      
+    </section>
 
     <!-- 푸터 -->
-    <footer class="bg-[#1a1a1a] text-gray-400">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="text-sm text-gray-500 space-y-1">
-          <p class="mt-4">© NAVER Cloud Corp. All Rights Reserved.</p>
+    <footer class="bg-gray-900 text-white py-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center">
+          <p class="text-sm" data-i18n="copyright">© NAVER Cloud Corp. All Rights Reserved.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-sm hover:text-blue-400 transition-colors" data-i18n="privacyPolicy">개인정보처리방침</a>
+            <a href="#" class="text-sm hover:text-blue-400 transition-colors" data-i18n="termsOfService">이용약관</a>
+          </div>
         </div>
       </div>
     </footer>
@@ -816,11 +858,10 @@
         function handleLanguageSelection(e) {
           e.preventDefault();
           const selectedLang = e.target.dataset.lang;
+          console.log('언어 선택됨:', selectedLang);
           
-          // 현재 언어 표시 업데이트
-          if (currentLang) {
-            currentLang.textContent = selectedLang === 'ko' ? '한국어' : 'English';
-          }
+          // 언어 표시 업데이트
+          updateLanguageDisplay(selectedLang);
           
           // 드롭다운 닫기
           languageDropdown.classList.add('hidden');
@@ -833,6 +874,7 @@
         // 언어 선택 이벤트 리스너 등록
         document.querySelectorAll('#languageDropdown a[data-lang], #mobileLangDropdown a[data-lang]').forEach(link => {
           link.addEventListener('click', handleLanguageSelection);
+          console.log('언어 선택 이벤트 리스너 등록:', link.dataset.lang);
         });
 
         // 브라우저 언어 감지
@@ -841,131 +883,200 @@
           return browserLang.toLowerCase().startsWith('ko') ? 'ko' : 'en';
         }
 
+        // 초기 언어 설정 표시
+        function updateLanguageDisplay(lang) {
+          if (currentLang) {
+            currentLang.textContent = translations[lang]['languageText'];
+          }
+          
+          // 언어에 따라 토글 버튼 텍스트 업데이트
+          const toggleElements = document.querySelectorAll('[data-i18n="toggleLanguage"]');
+          toggleElements.forEach(element => {
+            element.textContent = translations[lang]['toggleLanguage'];
+          });
+        }
+
         // 언어 텍스트 데이터
         const translations = {
-          ko: {
-            features: '기능',
-            download: '다운로드',
-            serviceTitle: '더욱 강력해진 GamePot Studio',
-            serviceDesc: '게임 빌드 관리부터 버전 관리, 파일 관리, 디자인 에디터까지 한 번에 관리할 수 있습니다.',
-            // 빌드 관리 섹션
-            buildManagement: '빌드 관리',
-            buildDesc: '게임 빌드 파일을 효율적으로 관리하고 다양한 플랫폼에 배포할 수 있습니다. OS별 빌드 등록, 메타데이터 관리로 팀 내 협업을 원활하게 합니다.',
-            // 버전 관리 섹션
-            versionManagement: '버전 관리',
-            versionDesc: '게임 버전을 체계적으로 관리하고 업데이트를 효율적으로 배포하세요. 강제/선택적 업데이트 설정, 패치 서버 연동으로 배포 과정을 간소화합니다.',
-            // 파일 관리 섹션
-            fileManagement: '파일 관리',
-            fileDesc: '게임 관련 파일을 체계적으로 관리합니다. 드래그 앤 드롭 업로드, 폴더 구조 관리, 버전 히스토리 추적 및 접근 권한 설정이 가능합니다.',
-            // 디자인 에디터 섹션
-            designEditor: '디자인 에디터',
-            designDesc: '런처 UI를 직관적으로 관리하세요. 로고 및 배경 이미지 변경, 테마 설정, 공지사항 관리 등 브랜드에 맞는 맞춤형 디자인을 제공합니다.',
-            // 통계 분석 섹션
-            trafficAnalysis: '트래픽 분석',
-            trafficDesc: '다운로드 현황을 실시간 모니터링이 가능하여 비용을 최적화 하실 수 있습니다. 시각화 도구, 데이터 내보내기 기능을 제공합니다.',
-            // 게임팟 대시보드 섹션
-            gamepotDashboard: '게임팟 대시보드 (준비중)',
-            gamepotDesc: '게임팟 대시보드를 앱으로 바로 실행이 가능합니다. 게임팟에는 로그인, 결제, 공지사항, 커뮤니티등 게임팟에 모든 기능을 접근을 가능합니다.',
-            // 다운로드 섹션
-            osDownload: '운영체제별 다운로드',
-            osDownloadDesc: 'GamePot Studio는 다양한 운영체제를 지원합니다. 아래에서 원하는 운영체제를 선택하여 다운로드하세요.',
-            windows: '윈도우',
-            macOS: '맥OS',
-            macOSAppleSilicon: '맥OS (애플실리콘)',
-            macOSIntel: '맥OS (인텔)',
-            linux: '리눅스',
-            win10orLater: '윈도우 10 이상',
-            bit64OS: '64비트 운영체제',
-            macOS11orLater: '맥OS 11.0 이상',
-            appleSilicon: '애플실리콘',
-            intelProcessor: '인텔 프로세서',
-            ubuntu18OrLater: '우분투 18.04 LTS 이상',
-            downloadNow: '지금 다운로드',
-            // 가격 섹션
-            useWithoutWorry: '비용 걱정 없이 사용하세요',
-            freeForDevs: 'GamePot Studio는 개발자와 게임 스튜디오를 위해 완전 무료로 제공됩니다.',
-            completeFree: '완전 무료',
-            noCreditCard: '신용카드 정보가 필요하지 않습니다. 가입 즉시 모든 기능을 이용할 수 있습니다.',
-            allFeaturesUnlimited: '모든 핵심 기능 무제한 사용',
-            unlimitedBuildVersion: '무제한 빌드 및 버전 관리', 
-            customizeLauncherUI: '런처 UI 커스터마이징',
-            techSupportAccess: '기술 지원 커뮤니티 액세스',
-            startNow: '지금 바로 시작하기',
-            // 게임 개발 도구 섹션
-            gameDevTools: '게임 개발 도구 라인업',
-            gameDevToolsDesc: '게임 개발에 꼭 필요한 도구들을 추천 드립니다.',
-            naverCloudGamepot: '네이버 클라우드 게임팟',
-            gamepotFeaturesDesc: '게임 운영에 꼭 필요한 인증, 결제, 고객지원, 통계, 쿠폰, 광고, 커뮤니티 등 30여 가지 기능이 SDK 하나에 통합되어 제공됩니다.',
-            naverCloudChat: '네이버 클라우드 Ncloud Chat',
-            chatDesc: '실시간 채팅 및 메시지 시스템, 다자 간 대화 채널 구성할 수 있는 비즈니스 전용 채팅 솔루션',
-            goToGuide: '가이드 바로가기'
+          'ko': {
+            'languageText': '한국어',
+            'toggleLanguage': '영어로 보기',
+            'menu': '메뉴',
+            'home': '홈',
+            'features': '특징',
+            'downloads': '다운로드',
+            'pricing': '가격',
+            'contact': '문의하기',
+            'getStarted': '시작하기',
+            'serviceFeatures': '서비스 특징',
+            'buildManagement': '빌드 관리',
+            'gameBuilds': '게임 빌드',
+            'versionManagement': '버전 관리',
+            'fileManagement': '파일 관리',
+            'designEditor': '디자인 에디터',
+            'screenshots': '스크린샷',
+            'downloadHeader': '지금 다운로드하세요',
+            'downloadDescription': '다양한 운영체제에서 GamePot Studio를 사용해보세요.',
+            'pricingTitle': '비용 걱정 없이 사용하세요',
+            'pricingSubtitle': 'GamePot Studio는 개발자와 게임 스튜디오를 위해 완전 무료로 제공됩니다.',
+            'productName': 'GamePot Studio',
+            'currency': '원',
+            'pricingFeature1': '모든 핵심 기능 무제한 사용',
+            'pricingFeature2': '무제한 빌드 및 버전 관리',
+            'pricingFeature3': '런처 UI 커스터마이징',
+            'pricingFeature4': '기술 지원 커뮤니티 액세스',
+            'startNowButton': '지금 바로 시작하기',
+            'pricingNote': '신용카드 정보가 필요하지 않습니다. 가입 즉시 모든 기능을 이용할 수 있습니다.',
+            'otherToolsTitle': '게임 개발에 꼭 필요한 다른 도구들을 소개해 드립니다.',
+            'gamepotTitle': '네이버 클라우드 게임팟',
+            'gamepotDesc': '게임 운영에 꼭 필요한 인증, 결제, 고객지원, 통계, 쿠폰, 광고, 커뮤니티 등 30여 가지 기능이 SDK 하나에 통합되어 제공됩니다.',
+            'ncloudChatTitle': '네이버 클라우드 엔클라우드챗',
+            'ncloudChatDesc': '실시간 채팅 및 메시지 시스템, 다자 간 대화 채널 구성할 수 있는 비즈니스 전용 채팅 솔루션',
+            'guideButton': '가이드 바로가기',
+            'downloadButton': '다운로드',
+            'windows': '윈도우',
+            'windows64': '윈도우 (64비트)',
+            'win10orLater': '윈도우 10 이상',
+            'bit64OS': '64비트 운영체제',
+            'macOSAppleSilicon': '맥OS (애플실리콘)',
+            'macOSARM': '맥OS (ARM64)',
+            'macOS11orLater': '맥OS 11.0 이상',
+            'appleSilicon': '애플실리콘',
+            'macOSIntel': '맥OS (인텔)',
+            'macOSx64': '맥OS (x64)',
+            'intelProcessor': '인텔 프로세서',
+            'linux': '리눅스',
+            'linux64': '리눅스 (x64)',
+            'ubuntu18OrLater': '우분투 18.04 LTS 이상',
+            'copyright': '© NAVER Cloud Corp. All Rights Reserved.',
+            'privacyPolicy': '개인정보처리방침',
+            'termsOfService': '이용약관',
+            'heroSubtitle': '게임 빌드 통합 관리 솔루션',
+            'heroTitle': '게임 빌드 관리의\n새로운 기준',
+            'heroDescription': 'GamePot Studio는 게임 빌드의 빌드, 버전, UI를 통합적으로 관리할 수 있도록 설계된 통합 프로그램입니다. Windows, macOS, Linux를 포함한 다양한 운영체제에서 실행 가능하며, 프로젝트 유지보수와 배포 효율성을 극대화합니다.',
+            'featureNoFee': '가입비, 월 이용료 없음',
+            'featureAllFree': '기능 제한 없는 완전 무료',
+            'featureAllOS': '모든 OS 지원',
+            'buildManagementScreen': '빌드 관리 화면',
+            'versionManagementScreen': '버전 관리 화면',
+            'fileManagementScreen': '파일 관리 화면',
+            'designEditorScreen': '디자인 에디터 분석 화면',
+            'thumbnail1': '썸네일 1',
+            'thumbnail2': '썸네일 2',
+            'thumbnail3': '썸네일 3',
+            'thumbnail4': '썸네일 4',
+            'serviceTitle': '더욱 강력해진 GamePot Studio',
+            'serviceDesc': '게임 빌드 관리부터 버전 관리, 파일 관리, 디자인 에디터까지 한 번에 관리할 수 있습니다.',
+            'buildManagementTitle': '빌드 관리',
+            'buildManagementDesc': '게임 빌드 파일을 효율적으로 관리하고 다양한 플랫폼에 배포할 수 있습니다. OS별 빌드 등록, 메타데이터 관리로 팀 내 협업을 원활하게 합니다.',
+            'versionManagementTitle': '버전 관리',
+            'versionManagementDesc': '게임 버전을 체계적으로 관리하고 업데이트를 효율적으로 배포하세요. 강제/선택적 업데이트 설정, 패치 서버 연동으로 배포 과정을 간소화합니다.',
+            'fileManagementTitle': '파일 관리',
+            'fileManagementDesc': '게임 관련 파일을 체계적으로 관리합니다. 드래그 앤 드롭 업로드, 폴더 구조 관리, 버전 히스토리 추적 및 접근 권한 설정이 가능합니다.',
+            'designEditorTitle': '디자인 에디터',
+            'designEditorDesc': '런처 UI를 직관적으로 관리하세요. 로고 및 배경 이미지 변경, 테마 설정, 공지사항 관리 등 브랜드에 맞는 맞춤형 디자인을 제공합니다.',
+            'trafficAnalyticsTitle': '트래픽 분석',
+            'trafficAnalyticsDesc': '다운로드 현황을 실시간 모니터링이 가능하여 비용을 최적화 하실 수 있습니다. 시각화 도구, 데이터 내보내기 기능을 제공합니다.',
+            'gamepotDashboardTitle': '게임팟 대시보드 (준비중)',
+            'gamepotDashboardDesc': '게임팟 대시보드를 앱으로 바로 실행이 가능합니다. 게임팟에는 로그인, 결제, 공지사항, 커뮤니티등 게임팟에 모든 기능을 접근을 가능합니다.'
           },
-          en: {
-            features: 'Features',
-            download: 'Download',
-            serviceTitle: 'More Powerful GamePot Studio',
-            serviceDesc: 'Manage everything from game build management to version control, file management, and design editor all in one place.',
-            // Build Management Section
-            buildManagement: 'Build Management',
-            buildDesc: 'Efficiently manage game build files and deploy to various platforms. Register OS-specific builds and manage metadata to facilitate team collaboration.',
-            // Version Management Section
-            versionManagement: 'Version Management',
-            versionDesc: 'Systematically manage game versions and efficiently deploy updates. Simplify deployment with forced/optional update settings and patch server integration.',
-            // File Management Section
-            fileManagement: 'File Management',
-            fileDesc: 'Systematically manage game-related files. Features drag-and-drop uploads, folder structure management, version history tracking, and access permission settings.',
-            // Design Editor Section
-            designEditor: 'Design Editor',
-            designDesc: 'Intuitively manage launcher UI. Change logos and background images, set themes, manage announcements, and provide customized designs that match your brand.',
-            // Traffic Analysis Section
-            trafficAnalysis: 'Traffic Analysis',
-            trafficDesc: 'Real-time monitoring of download status allows you to optimize costs. Provides visualization tools and data export functions.',
-            // GamePot Dashboard Section
-            gamepotDashboard: 'GamePot Dashboard (Coming Soon)',
-            gamepotDesc: 'Launch the GamePot dashboard directly from the app. Access all GamePot features including login, payment, announcements, and community.',
-            // Download Section
-            osDownload: 'OS Downloads',
-            osDownloadDesc: 'GamePot Studio supports various operating systems. Select your desired operating system below to download.',
-            windows: 'Windows',
-            macOS: 'macOS',
-            macOSAppleSilicon: 'macOS (Apple Silicon)',
-            macOSIntel: 'macOS (Intel)',
-            linux: 'Linux',
-            win10orLater: 'Windows 10 or later',
-            bit64OS: '64-bit OS',
-            macOS11orLater: 'macOS 11.0 or later',
-            appleSilicon: 'Apple Silicon',
-            intelProcessor: 'Intel Processor',
-            ubuntu18OrLater: 'Ubuntu 18.04 LTS or later',
-            downloadNow: 'Download Now',
-            // Pricing Section
-            useWithoutWorry: 'Use Without Cost Concerns',
-            freeForDevs: 'GamePot Studio is completely free for developers and game studios.',
-            completeFree: 'Completely Free',
-            noCreditCard: 'No credit card information required. Access all features immediately upon sign-up.',
-            allFeaturesUnlimited: 'Unlimited use of all core features',
-            unlimitedBuildVersion: 'Unlimited build and version management',
-            customizeLauncherUI: 'Launcher UI customization',
-            techSupportAccess: 'Access to technical support community',
-            startNow: 'Start Now',
-            // Game Development Tools Section
-            gameDevTools: 'Game Development Tool Lineup',
-            gameDevToolsDesc: 'We recommend these essential tools for game development.',
-            naverCloudGamepot: 'NAVER Cloud GamePot',
-            gamepotFeaturesDesc: 'Over 30 features essential for game operation including authentication, payment, customer support, statistics, coupons, advertising, and community are integrated into a single SDK.',
-            naverCloudChat: 'NAVER Cloud Ncloud Chat',
-            chatDesc: 'A business-exclusive chat solution that enables real-time chat and message systems, and multi-party conversation channels.',
-            goToGuide: 'Go to Guide'
+          'en': {
+            'languageText': 'English',
+            'toggleLanguage': 'View in Korean',
+            'menu': 'Menu',
+            'home': 'Home',
+            'features': 'Features',
+            'downloads': 'Downloads',
+            'pricing': 'Pricing',
+            'contact': 'Contact',
+            'getStarted': 'Get Started',
+            'serviceFeatures': 'Service Features',
+            'buildManagement': 'Build Management',
+            'gameBuilds': 'Game Builds',
+            'versionManagement': 'Version Management',
+            'fileManagement': 'File Management',
+            'designEditor': 'Design Editor',
+            'screenshots': 'Screenshots',
+            'downloadHeader': 'Download Now',
+            'downloadDescription': 'Use GamePot Studio on various operating systems.',
+            'pricingTitle': 'Use Without Cost Concerns',
+            'pricingSubtitle': 'GamePot Studio is provided completely free for developers and game studios.',
+            'productName': 'GamePot Studio',
+            'currency': 'USD',
+            'pricingFeature1': 'Unlimited use of all core features',
+            'pricingFeature2': 'Unlimited build and version management',
+            'pricingFeature3': 'Launcher UI customization',
+            'pricingFeature4': 'Access to technical support community',
+            'startNowButton': 'Start Now',
+            'pricingNote': 'No credit card information required. Access all features immediately upon signup.',
+            'otherToolsTitle': 'Let us introduce other essential tools for game development.',
+            'gamepotTitle': 'NAVER Cloud GamePot',
+            'gamepotDesc': 'Over 30 essential game operation features including authentication, payment, customer support, statistics, coupons, advertising, and community are integrated into a single SDK.',
+            'ncloudChatTitle': 'NAVER Cloud ncloud Chat',
+            'ncloudChatDesc': 'A business-dedicated chat solution that enables real-time chat and messaging systems, and multi-party conversation channels',
+            'guideButton': 'View Guide',
+            'downloadButton': 'Download',
+            'windows': 'Windows',
+            'windows64': 'Windows (64-bit)',
+            'win10orLater': 'Windows 10 or later',
+            'bit64OS': '64-bit OS',
+            'macOSAppleSilicon': 'macOS (Apple Silicon)',
+            'macOSARM': 'macOS (ARM64)',
+            'macOS11orLater': 'macOS 11.0 or later',
+            'appleSilicon': 'Apple Silicon',
+            'macOSIntel': 'macOS (Intel)',
+            'macOSx64': 'macOS (x64)',
+            'intelProcessor': 'Intel Processor',
+            'linux': 'Linux',
+            'linux64': 'Linux (x64)',
+            'ubuntu18OrLater': 'Ubuntu 18.04 LTS or later',
+            'copyright': '© NAVER Cloud Corp. All Rights Reserved.',
+            'privacyPolicy': 'Privacy Policy',
+            'termsOfService': 'Terms of Service',
+            'heroSubtitle': 'Game Build Integrated Management Solution',
+            'heroTitle': 'New Standard in\nGame Build Management',
+            'heroDescription': 'GamePot Studio is an integrated program designed to comprehensively manage game builds, versions, and UI. It runs on various operating systems including Windows, macOS, and Linux, maximizing project maintenance and deployment efficiency.',
+            'featureNoFee': 'No signup or monthly fees',
+            'featureAllFree': 'All features completely free',
+            'featureAllOS': 'Supports all OS',
+            'buildManagementScreen': 'Build Management Screen',
+            'versionManagementScreen': 'Version Management Screen',
+            'fileManagementScreen': 'File Management Screen',
+            'designEditorScreen': 'Design Editor Analysis Screen',
+            'thumbnail1': 'Thumbnail 1',
+            'thumbnail2': 'Thumbnail 2',
+            'thumbnail3': 'Thumbnail 3',
+            'thumbnail4': 'Thumbnail 4',
+            'serviceTitle': 'Enhanced GamePot Studio',
+            'serviceDesc': 'Manage everything from game build management to version control, file management, and design editor in one place.',
+            'buildManagementTitle': 'Build Management',
+            'buildManagementDesc': 'Efficiently manage game build files and deploy to various platforms. Streamline team collaboration with OS-specific build registration and metadata management.',
+            'versionManagementTitle': 'Version Management',
+            'versionManagementDesc': 'Systematically manage game versions and efficiently deploy updates. Simplify deployment with forced/optional update settings and patch server integration.',
+            'fileManagementTitle': 'File Management',
+            'fileManagementDesc': 'Systematically manage game-related files. Features include drag-and-drop upload, folder structure management, version history tracking, and access permission settings.',
+            'designEditorTitle': 'Design Editor',
+            'designEditorDesc': 'Intuitively manage launcher UI. Customize logos, background images, themes, and announcements to match your brand identity.',
+            'trafficAnalyticsTitle': 'Traffic Analytics',
+            'trafficAnalyticsDesc': 'Monitor download status in real-time to optimize costs. Includes visualization tools and data export functionality.',
+            'gamepotDashboardTitle': 'GamePot Dashboard (Coming Soon)',
+            'gamepotDashboardDesc': 'Launch the GamePot dashboard directly from the app. Access all GamePot features including login, payment, announcements, and community.'
           }
         };
 
         // 언어 변경 함수
         function changeLang(lang) {
+          console.log('언어 변경 시작:', lang);
           const elements = document.querySelectorAll('[data-i18n]');
+          console.log('번역할 요소 수:', elements.length);
+          
           elements.forEach(element => {
             const key = element.getAttribute('data-i18n');
             if (translations[lang] && translations[lang][key]) {
+              console.log('번역:', key, translations[lang][key]);
               element.textContent = translations[lang][key];
+            } else {
+              console.log('번역 없음:', key);
             }
           });
 
@@ -976,6 +1087,7 @@
 
           // 언어 설정 저장
           localStorage.setItem('preferredLanguage', lang);
+          console.log('언어 변경 완료:', lang);
         }
 
         // 클릭 이벤트 처리 - 드롭다운 외부 클릭 시 닫기
@@ -1001,10 +1113,9 @@
         const browserLang = detectBrowserLanguage();
         const initialLang = urlLang || savedLang || browserLang;
         
+        console.log('초기 언어 설정:', initialLang);
         changeLang(initialLang);
-        if (currentLang) {
-          currentLang.textContent = initialLang === 'ko' ? '한국어' : 'English';
-        }
+        updateLanguageDisplay(initialLang);
       });
     </script>
   </body>
