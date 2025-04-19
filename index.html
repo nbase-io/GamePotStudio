@@ -4,68 +4,625 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GamePot Studio</title>
-    <script type="module" src="https://unpkg.com/@shadcn/ui@latest"></script>
-    <link rel="stylesheet" href="https://unpkg.com/@shadcn/ui@latest/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <style>
+      html {
+        font-size: 15px;
+      }
+      .hero-gradient {
+        background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+      }
+      .feature-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      .swiper {
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+      .swiper-slide {
+        background-position: center;
+        background-size: cover;
+      }
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .screenshot-thumbnails {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+        justify-content: center;
+      }
+      .screenshot-thumbnail {
+        width: 80px;
+        height: 50px;
+        border-radius: 4px;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        border: 2px solid transparent;
+      }
+      .screenshot-thumbnail:hover {
+        opacity: 1;
+        transform: translateY(-2px);
+      }
+      .screenshot-thumbnail.active {
+        opacity: 1;
+        border-color: white;
+      }
+    </style>
   </head>
-  <body class="bg-background text-foreground font-sans">
-    <main class="max-w-5xl mx-auto p-10">
-      <h1 class="text-4xl font-bold mb-4">GamePot Studio</h1>
-      <p class="text-lg mb-6">
-        GamePot Studio는 게임 런처의 빌드, 버전, UI를 통합적으로 관리할 수 있도록 설계된
-        <strong>통합 실행 프로그램</strong>입니다. Windows와 macOS를 포함한 다양한 운영체제에서
-        실행 가능하며, 프로젝트 유지보수와 배포 효율성을 극대화합니다.
-      </p>
+  <body class="bg-gray-50 text-gray-800 font-sans text-sm">
+    <!-- 내비게이션 바 -->
+    <nav class="bg-white shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-14">
+          <div class="flex items-center">
+            <div class="flex-shrink-0 flex items-center">
+              <i class="fas fa-gamepad text-indigo-600 text-xl mr-2"></i>
+              <span class="font-bold text-lg text-indigo-600">GamePot Studio</span>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+            <a href="#features" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-xs font-medium">기능</a>
+            <a href="#benefits" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-xs font-medium">장점</a>
+            <a href="#" class="bg-indigo-600 text-white px-4 py-2 rounded-md text-xs font-medium hover:bg-indigo-700">시작하기</a>
+          </div>
+        </div>
+      </div>
+    </nav>
 
-      <section class="mb-8">
-        <h2 class="text-2xl font-semibold mb-2">빌드 관리</h2>
-        <ul class="list-disc list-inside space-y-1">
-          <li>빌드 파일(zip, exe, app 등)을 업로드하고 관리</li>
-          <li>운영체제(OS) / 플랫폼별로 빌드 분리 등록 가능</li>
-          <li>빌드 등록 시 메타정보 입력 가능: 빌드명, 작성일, 변경 내역, 대상 플랫폼</li>
-        </ul>
-      </section>
+    <!-- 히어로 섹션 -->
+    <div class="hero-gradient text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h1 class="text-4xl font-extrabold tracking-tight mb-4">
+              게임 런처 관리의<br />새로운 기준
+            </h1>
+            <p class="text-base text-indigo-100 mb-6">
+              GamePot Studio는 게임 런처의 빌드, 버전, UI를 통합적으로 관리할 수 있도록 설계된
+              <strong>통합 실행 프로그램</strong>입니다. Windows, macOS, Linux를 포함한 다양한 운영체제에서
+              실행 가능하며, 프로젝트 유지보수와 배포 효율성을 극대화합니다.
+            </p>
+            
+            <div class="bg-indigo-800 bg-opacity-50 rounded-lg p-4 mb-4">
+              <p class="text-sm mb-3 text-center text-indigo-100">운영체제별 다운로드</p>
+              <div class="grid grid-cols-3 gap-2">
+                <a href="#" class="bg-white text-indigo-600 px-2 py-2 rounded-md text-xs font-medium hover:bg-gray-100 flex flex-col items-center justify-center">
+                  <i class="fab fa-windows text-xl mb-1"></i>
+                  <span>Windows</span>
+                  <span class="bg-green-500 text-white text-xs px-2 py-0.5 rounded-full mt-1">0원</span>
+                </a>
+                <a href="#" class="bg-white text-indigo-600 px-2 py-2 rounded-md text-xs font-medium hover:bg-gray-100 flex flex-col items-center justify-center">
+                  <i class="fab fa-apple text-xl mb-1"></i>
+                  <span>macOS</span>
+                  <span class="bg-green-500 text-white text-xs px-2 py-0.5 rounded-full mt-1">0원</span>
+                </a>
+                <a href="#" class="bg-white text-indigo-600 px-2 py-2 rounded-md text-xs font-medium hover:bg-gray-100 flex flex-col items-center justify-center">
+                  <i class="fab fa-linux text-xl mb-1"></i>
+                  <span>Linux</span>
+                  <span class="bg-green-500 text-white text-xs px-2 py-0.5 rounded-full mt-1">0원</span>
+                </a>
+              </div>
+            </div>
 
-      <section class="mb-8">
-        <h2 class="text-2xl font-semibold mb-2">버전 관리</h2>
-        <ul class="list-disc list-inside space-y-1">
-          <li>각 빌드에 대한 버전 번호 관리</li>
-          <li>강제 업데이트 / 선택적 업데이트 여부 설정</li>
-          <li>패치 서버와 연동하여 자동 배포 가능</li>
-        </ul>
-      </section>
+            <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+              <a href="#download" class="border border-white text-white px-5 py-2 rounded-md text-sm font-medium hover:bg-white hover:text-indigo-600 flex items-center justify-center">
+                <i class="fas fa-download mr-2"></i>
+                <span>다운로드</span>
+              </a>
+              <a href="#" class="border border-white text-white px-5 py-2 rounded-md text-sm font-medium hover:bg-white hover:text-indigo-600">
+                자세히 알아보기
+              </a>
+            </div>
+            <div class="mt-4">
+              <span class="text-indigo-200 text-xs flex items-center">
+                <i class="fas fa-check-circle mr-1"></i> 가입비, 월 이용료 없음
+              </span>
+              <span class="text-indigo-200 text-xs flex items-center mt-1">
+                <i class="fas fa-check-circle mr-1"></i> 기능 제한 없는 완전 무료 서비스
+              </span>
+              <span class="text-indigo-200 text-xs flex items-center mt-1">
+                <i class="fas fa-check-circle mr-1"></i> Windows, macOS, Linux 지원
+              </span>
+            </div>
+          </div>
+          <div class="md:block">
+            <!-- 스크린샷 슬라이더 -->
+            <div class="swiper screenshot-slider">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="https://via.placeholder.com/800x500/3b82f6/FFFFFF?text=대시보드" alt="GamePot Studio 대시보드" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://via.placeholder.com/800x500/6366f1/FFFFFF?text=빌드+관리" alt="빌드 관리 화면" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://via.placeholder.com/800x500/8b5cf6/FFFFFF?text=버전+관리" alt="버전 관리 화면" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://via.placeholder.com/800x500/a855f7/FFFFFF?text=런처+UI+편집" alt="런처 UI 편집 화면" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://via.placeholder.com/800x500/d946ef/FFFFFF?text=통계+분석" alt="통계 분석 화면" />
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-button-next text-white"></div>
+              <div class="swiper-button-prev text-white"></div>
+            </div>
+            <!-- 스크린샷 썸네일 -->
+            <div class="screenshot-thumbnails mt-4">
+              <img src="https://via.placeholder.com/160x100/3b82f6/FFFFFF?text=대시보드" alt="썸네일 1" class="screenshot-thumbnail active" data-index="0">
+              <img src="https://via.placeholder.com/160x100/6366f1/FFFFFF?text=빌드+관리" alt="썸네일 2" class="screenshot-thumbnail" data-index="1">
+              <img src="https://via.placeholder.com/160x100/8b5cf6/FFFFFF?text=버전+관리" alt="썸네일 3" class="screenshot-thumbnail" data-index="2">
+              <img src="https://via.placeholder.com/160x100/a855f7/FFFFFF?text=UI+편집" alt="썸네일 4" class="screenshot-thumbnail" data-index="3">
+              <img src="https://via.placeholder.com/160x100/d946ef/FFFFFF?text=통계" alt="썸네일 5" class="screenshot-thumbnail" data-index="4">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      <section class="mb-8">
-        <h2 class="text-2xl font-semibold mb-2">런처 UI 관리</h2>
-        <p class="mb-2">게임 런처의 UI 요소를 실시간으로 직관적으로 변경할 수 있습니다.</p>
-        <ul class="list-disc list-inside space-y-1">
-          <li>로고 이미지</li>
-          <li>배경 이미지</li>
-          <li>컬러 테마</li>
-          <li>버튼 스타일 및 텍스트</li>
-          <li>뉴스 및 공지사항 영역 구성</li>
-        </ul>
-      </section>
+    <!-- 주요 기능 섹션 -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14" id="features">
+      <div class="text-center mb-14">
+        <h2 class="text-2xl font-bold text-gray-900">주요 기능</h2>
+        <p class="mt-3 text-base text-gray-600">게임 런처 관리를 위한 완벽한 솔루션</p>
+      </div>
 
-      <section class="mb-8">
-        <h2 class="text-2xl font-semibold mb-2">파일 관리</h2>
-        <p>여러 개의 패치 파일 또는 대용량 공유 파일을 업로드 및 다운로드할 수 있습니다.</p>
-      </section>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- 빌드 관리 카드 -->
+        <div class="feature-card bg-white p-6 rounded-lg shadow-md">
+          <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-cubes text-blue-600 text-lg"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">빌드 관리</h3>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span>빌드 파일(zip, exe, app 등)을 업로드하고 관리</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span>운영체제(OS) / 플랫폼별로 빌드 분리 등록 가능</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span>빌드 등록 시 메타정보 입력 가능: 빌드명, 작성일, 변경 내역, 대상 플랫폼</span>
+            </li>
+          </ul>
+        </div>
 
-      <section class="mb-8">
-        <h2 class="text-2xl font-semibold mb-2">통계</h2>
-        <p>준비 중...</p>
-      </section>
+        <!-- 버전 관리 카드 -->
+        <div class="feature-card bg-white p-6 rounded-lg shadow-md">
+          <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-code-branch text-purple-600 text-lg"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">버전 관리</h3>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span>각 빌드에 대한 버전 번호 관리</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span>강제 업데이트 / 선택적 업데이트 여부 설정</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span>패치 서버와 연동하여 자동 배포 가능</span>
+            </li>
+          </ul>
+        </div>
 
-      <section class="mb-8">
-        <h2 class="text-2xl font-semibold mb-2">게임 런처 기능</h2>
-        <ul class="list-disc list-inside space-y-1">
-          <li>자동 업데이트: 최신 패치를 자동으로 다운로드 및 적용</li>
-          <li>무결성 체크: 클라이언트 파일 검증</li>
-          <li>다운로드 속도 및 남은 시간 예측</li>
-          <li>진행 상태 시각화 (진행 바 및 텍스트)</li>
-          <li>설치 완료 후 게임 실행 버튼 제공</li>
-        </ul>
-      </section>
+        <!-- 런처 UI 관리 카드 -->
+        <div class="feature-card bg-white p-6 rounded-lg shadow-md">
+          <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-palette text-indigo-600 text-lg"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">런처 UI 관리</h3>
+          <p class="text-sm text-gray-600 mb-2">게임 런처의 UI 요소를 실시간으로 직관적으로 변경할 수 있습니다.</p>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span>로고 이미지, 배경 이미지 및 컬러 테마</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span>버튼 스타일 및 텍스트 커스터마이징</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+              <span>뉴스 및 공지사항 영역 구성</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 추가 기능 섹션 -->
+      <div class="mt-14 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- 파일 관리 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="w-9 h-9 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+              <i class="fas fa-file-alt text-green-600"></i>
+            </div>
+            <h3 class="text-lg font-semibold">파일 관리</h3>
+          </div>
+          <p class="text-sm text-gray-600">여러 개의 패치 파일 또는 대용량 공유 파일을 업로드 및 다운로드할 수 있습니다.</p>
+        </div>
+
+        <!-- 통계 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="w-9 h-9 bg-yellow-100 rounded-lg flex items-center justify-center mr-4">
+              <i class="fas fa-chart-line text-yellow-600"></i>
+            </div>
+            <h3 class="text-lg font-semibold">통계</h3>
+          </div>
+          <p class="text-sm text-gray-600">사용자 다운로드 현황, 업데이트 성공률, 플랫폼별 사용량 등 다양한 통계 데이터를 확인할 수 있습니다. (준비 중)</p>
+        </div>
+      </div>
+
+      <!-- 게임 런처 기능 섹션 -->
+      <div class="mt-14" id="benefits">
+        <div class="text-center mb-10">
+          <h2 class="text-2xl font-bold text-gray-900">게임 런처 기능</h2>
+          <p class="mt-3 text-base text-gray-600">사용자에게 최적의 게임 실행 환경을 제공합니다</p>
+        </div>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-9 h-9 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-sync text-white"></i>
+              </div>
+              <div>
+                <h4 class="text-base font-medium text-gray-900">자동 업데이트</h4>
+                <p class="mt-1 text-sm text-gray-600">최신 패치를 자동으로 다운로드 및 적용합니다.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-9 h-9 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-shield-alt text-white"></i>
+              </div>
+              <div>
+                <h4 class="text-base font-medium text-gray-900">무결성 체크</h4>
+                <p class="mt-1 text-sm text-gray-600">클라이언트 파일의 무결성을 검증합니다.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-9 h-9 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-tachometer-alt text-white"></i>
+              </div>
+              <div>
+                <h4 class="text-base font-medium text-gray-900">다운로드 속도 관리</h4>
+                <p class="mt-1 text-sm text-gray-600">다운로드 속도 및 남은 시간을 정확히 예측합니다.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-9 h-9 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-spinner text-white"></i>
+              </div>
+              <div>
+                <h4 class="text-base font-medium text-gray-900">진행 상태 시각화</h4>
+                <p class="mt-1 text-sm text-gray-600">진행 바 및 텍스트로 설치 상태를 직관적으로 보여줍니다.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-9 h-9 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-play text-white"></i>
+              </div>
+              <div>
+                <h4 class="text-base font-medium text-gray-900">원클릭 실행</h4>
+                <p class="mt-1 text-sm text-gray-600">설치 완료 후 게임 실행 버튼을 제공합니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
+
+    <!-- 요금 안내 섹션 추가 -->
+    <div class="bg-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h2 class="text-2xl font-bold text-gray-900 mb-3">비용 걱정 없이 사용하세요</h2>
+          <p class="text-base text-gray-600 mb-8 max-w-3xl mx-auto">
+            GamePot Studio는 개발자와 게임 스튜디오를 위해 <span class="text-indigo-600 font-semibold">완전 무료</span>로 제공됩니다. 
+            숨겨진 비용이나 추가 요금은 전혀 없습니다.
+          </p>
+          
+          <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 max-w-md mx-auto">
+            <div class="flex justify-between items-center mb-4">
+              <span class="text-lg font-bold text-gray-900">GamePot Studio</span>
+              <div class="flex items-center">
+                <span class="text-3xl font-bold text-indigo-600 mr-1">0</span>
+                <span class="text-gray-600">원</span>
+              </div>
+            </div>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span class="text-gray-600">모든 핵심 기능 무제한 사용</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span class="text-gray-600">무제한 빌드 및 버전 관리</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span class="text-gray-600">런처 UI 커스터마이징</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span class="text-gray-600">기술 지원 커뮤니티 액세스</span>
+              </li>
+            </ul>
+            <a href="#" class="bg-indigo-600 text-white w-full block text-center py-2 rounded-md hover:bg-indigo-700">
+              지금 바로 시작하기
+            </a>
+            <p class="text-xs text-gray-500 mt-4 text-center">
+              신용카드 정보가 필요하지 않습니다. 가입 즉시 모든 기능을 이용할 수 있습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 다운로드 섹션 -->
+    <div class="bg-gray-100 py-12" id="download">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-3">운영체제별 다운로드</h2>
+          <p class="text-base text-gray-600 max-w-3xl mx-auto">
+            GamePot Studio는 다양한 운영체제를 지원합니다. 아래에서 원하는 운영체제를 선택하여 다운로드하세요.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Windows 다운로드 -->
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="flex items-center justify-center mb-4">
+              <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                <i class="fab fa-windows text-blue-600 text-3xl"></i>
+              </div>
+            </div>
+            <h3 class="text-lg font-semibold text-center mb-2">Windows</h3>
+            <ul class="text-sm text-gray-600 space-y-2 mb-4">
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>Windows 10 이상</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>64비트 운영체제</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>설치 파일 크기: 18MB</span>
+              </li>
+            </ul>
+            <a href="#" class="bg-indigo-600 text-white w-full block text-center py-2 rounded-md hover:bg-indigo-700 flex items-center justify-center">
+              <i class="fas fa-download mr-2"></i>
+              <span>Windows 다운로드</span>
+              <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full ml-2">0원</span>
+            </a>
+          </div>
+          
+          <!-- macOS 다운로드 -->
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="flex items-center justify-center mb-4">
+              <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
+                <i class="fab fa-apple text-gray-600 text-3xl"></i>
+              </div>
+            </div>
+            <h3 class="text-lg font-semibold text-center mb-2">macOS</h3>
+            <ul class="text-sm text-gray-600 space-y-2 mb-4">
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>macOS 11.0 이상</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>Apple Silicon/Intel 지원</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>설치 파일 크기: 22MB</span>
+              </li>
+            </ul>
+            <a href="#" class="bg-indigo-600 text-white w-full block text-center py-2 rounded-md hover:bg-indigo-700 flex items-center justify-center">
+              <i class="fas fa-download mr-2"></i>
+              <span>macOS 다운로드</span>
+              <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full ml-2">0원</span>
+            </a>
+          </div>
+          
+          <!-- Linux 다운로드 -->
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="flex items-center justify-center mb-4">
+              <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center">
+                <i class="fab fa-linux text-white text-3xl"></i>
+              </div>
+            </div>
+            <h3 class="text-lg font-semibold text-center mb-2">Linux</h3>
+            <ul class="text-sm text-gray-600 space-y-2 mb-4">
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>Ubuntu 18.04 LTS 이상</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>64비트 운영체제</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                <span>설치 파일 크기: 16MB</span>
+              </li>
+            </ul>
+            <a href="#" class="bg-indigo-600 text-white w-full block text-center py-2 rounded-md hover:bg-indigo-700 flex items-center justify-center">
+              <i class="fas fa-download mr-2"></i>
+              <span>Linux 다운로드</span>
+              <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full ml-2">0원</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA 섹션 -->
+    <div class="bg-indigo-600 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl font-bold mb-3">지금 바로 GamePot Studio를 시작하세요</h2>
+        <p class="text-base text-indigo-200 mb-3">더 효율적인 게임 런처 관리와 배포를 경험해보세요.</p>
+        <p class="text-indigo-200 text-sm font-semibold mb-6">요금 0원, 가입비 0원, 숨겨진 비용 0원</p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href="#download" class="bg-white text-indigo-600 px-5 py-2 rounded-md text-sm font-medium hover:bg-gray-100 flex items-center">
+            <i class="fab fa-windows mr-1"></i>
+            <span>Windows</span>
+            <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full ml-2">0원</span>
+          </a>
+          <a href="#download" class="bg-white text-indigo-600 px-5 py-2 rounded-md text-sm font-medium hover:bg-gray-100 flex items-center">
+            <i class="fab fa-apple mr-1"></i>
+            <span>macOS</span>
+            <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full ml-2">0원</span>
+          </a>
+          <a href="#download" class="bg-white text-indigo-600 px-5 py-2 rounded-md text-sm font-medium hover:bg-gray-100 flex items-center">
+            <i class="fab fa-linux mr-1"></i>
+            <span>Linux</span>
+            <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full ml-2">0원</span>
+          </a>
+          <a href="#" class="border border-white text-white px-5 py-2 rounded-md text-sm font-medium hover:bg-indigo-700">
+            문의하기
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 푸터 -->
+    <footer class="bg-gray-800 text-gray-300 py-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between">
+          <div class="mb-8 md:mb-0">
+            <div class="flex items-center">
+              <i class="fas fa-gamepad text-indigo-400 text-xl mr-2"></i>
+              <span class="font-bold text-lg text-white">GamePot Studio</span>
+            </div>
+            <p class="mt-2 text-xs text-gray-400">게임 런처의 통합 관리 솔루션</p>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+            <div>
+              <h3 class="text-xs font-semibold text-white tracking-wider uppercase mb-3">제품</h3>
+              <ul class="space-y-2">
+                <li><a href="#" class="text-xs text-gray-400 hover:text-white">기능</a></li>
+                <li><a href="#" class="text-xs text-gray-400 hover:text-white">가격</a></li>
+                <li><a href="#" class="text-xs text-gray-400 hover:text-white">데모</a></li>
+                <li><a href="#" class="text-xs text-gray-400 hover:text-white">다운로드</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xs font-semibold text-white tracking-wider uppercase mb-3">지원</h3>
+              <ul class="space-y-2">
+                <li><a href="#" class="text-xs text-gray-400 hover:text-white">문서</a></li>
+                <li><a href="#" class="text-xs text-gray-400 hover:text-white">FAQ</a></li>
+                <li><a href="#" class="text-xs text-gray-400 hover:text-white">문의하기</a></li>
+                <li><a href="#" class="text-xs text-gray-400 hover:text-white">개발자 포럼</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xs font-semibold text-white tracking-wider uppercase mb-3">회사</h3>
+              <ul class="space-y-2">
+                <li><a href="#" class="text-xs text-gray-400 hover:text-white">소개</a></li>
+                <li><a href="#" class="text-xs text-gray-400 hover:text-white">블로그</a></li>
+                <li><a href="#" class="text-xs text-gray-400 hover:text-white">채용</a></li>
+                <li><a href="#" class="text-xs text-gray-400 hover:text-white">연락처</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="mt-8 pt-6 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
+          <p class="text-xs text-gray-400">&copy; 2023 GamePot Studio. 모든 권리 보유.</p>
+          <div class="flex space-x-6 mt-4 md:mt-0">
+            <a href="#" class="text-gray-400 hover:text-white">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // 스크린샷 슬라이더 초기화
+        const screenshotSwiper = new Swiper('.screenshot-slider', {
+          slidesPerView: 1,
+          spaceBetween: 30,
+          loop: true,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+
+        // 썸네일 클릭 이벤트 처리
+        const thumbnails = document.querySelectorAll('.screenshot-thumbnail');
+        thumbnails.forEach(thumbnail => {
+          thumbnail.addEventListener('click', function() {
+            const index = parseInt(this.dataset.index);
+            screenshotSwiper.slideTo(index + 1);
+            
+            // 활성 썸네일 표시
+            thumbnails.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+          });
+        });
+
+        // 슬라이드 변경 시 썸네일 활성화 업데이트
+        screenshotSwiper.on('slideChange', function() {
+          const realIndex = screenshotSwiper.realIndex;
+          thumbnails.forEach(t => t.classList.remove('active'));
+          const activeThumb = document.querySelector(`.screenshot-thumbnail[data-index="${realIndex}"]`);
+          if (activeThumb) {
+            activeThumb.classList.add('active');
+          }
+        });
+      });
+    </script>
   </body>
 </html>
