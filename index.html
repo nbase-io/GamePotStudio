@@ -668,36 +668,67 @@
         <h2 class="text-2xl font-bold mb-4" data-i18n="pricingTitle">비용 걱정 없이 사용하세요</h2>
         <p class="text-gray-600 mb-8" data-i18n="pricingSubtitle">GamePot Studio는 개발자와 게임 스튜디오를 위해 <span class="text-blue-600 font-semibold">완전 무료</span>로 제공됩니다.</p>
         
-        <div class="bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
-          <div class="flex justify-between items-center mb-8 pb-6 border-b">
-            <span class="text-lg font-bold text-gray-900" data-i18n="productName">GamePot Studio</span>
-            <div class="flex items-baseline">
-              <span class="text-4xl font-bold text-blue-600">0</span>
-              <span class="text-xl text-gray-600 ml-1" data-i18n="currency">원</span>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <!-- 무료 요금제 -->
+          <div class="bg-white p-8 rounded-xl shadow-lg">
+            <div class="flex justify-between items-center mb-8 pb-6 border-b">
+              <span class="text-lg font-bold text-gray-900" data-i18n="standardPlan">스탠다드</span>
+              <div class="flex items-baseline">
+                <span class="text-4xl font-bold text-blue-600">0</span>
+                <span class="text-xl text-gray-600 ml-1" data-i18n="currency">원</span>
+              </div>
             </div>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start">
+                <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                <span class="text-gray-600" data-i18n="pricingFeature1">모든 핵심 기능 무제한 사용</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                <span class="text-gray-600" data-i18n="pricingFeature2">무제한 빌드 및 버전 관리</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                <span class="text-gray-600" data-i18n="pricingFeature3">런처 UI 커스터마이징</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                <span class="text-gray-600" data-i18n="pricingFeature4">기술 지원 커뮤니티 액세스</span>
+              </li>
+            </ul>
+            
+            <p class="text-sm text-gray-500 mt-4 text-center" data-i18n="pricingNote">
+              신용카드 정보가 필요하지 않습니다. 가입 즉시 모든 기능을 이용할 수 있습니다.
+            </p>
           </div>
-          <ul class="space-y-4 mb-8">
-            <li class="flex items-start">
-              <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
-              <span class="text-gray-600" data-i18n="pricingFeature1">모든 핵심 기능 무제한 사용</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
-              <span class="text-gray-600" data-i18n="pricingFeature2">무제한 빌드 및 버전 관리</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
-              <span class="text-gray-600" data-i18n="pricingFeature3">런처 UI 커스터마이징</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
-              <span class="text-gray-600" data-i18n="pricingFeature4">기술 지원 커뮤니티 액세스</span>
-            </li>
-          </ul>
           
-          <p class="text-sm text-gray-500 mt-4 text-center" data-i18n="pricingNote">
-            신용카드 정보가 필요하지 않습니다. 가입 즉시 모든 기능을 이용할 수 있습니다.
-          </p>
+          <!-- 엔터프라이즈 요금제 -->
+          <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-blue-600">
+            <div class="flex justify-between items-center mb-8 pb-6 border-b">
+              <span class="text-lg font-bold text-gray-900" data-i18n="enterprisePlan">엔터프라이즈</span>
+              <div class="bg-blue-100 text-blue-700 py-1 px-3 rounded-full font-semibold" data-i18n="contactForPrice">문의 요망</div>
+            </div>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start">
+                <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                <span class="text-gray-600" data-i18n="enterpriseFeature1">스탠다드 플랜의 모든 기능 포함</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                <span class="text-gray-600" data-i18n="enterpriseFeature2">맞춤형 커스터마이징</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                <span class="text-gray-600" data-i18n="enterpriseFeature3">24시간 7일 대응</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-blue-500 mt-1 mr-3"></i>
+                <span class="text-gray-600" data-i18n="enterpriseFeature4">메신저/전화를 통한 기술지원</span>
+              </li>
+            </ul>
+            
+            <a href="#" class="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center rounded-lg py-3 font-medium transition-colors" data-i18n="contactUsBtn" onclick="$crisp.push(['do', 'chat:open']); return false;">문의하기</a>
+          </div>
         </div>
       </div>
     </div>
@@ -1029,7 +1060,15 @@
             'trafficAnalyticsTitle': '트래픽 분석 (준비중)',
             'trafficAnalyticsDesc': '다운로드 현황을 실시간 모니터링이 가능하여 비용을 최적화 하실 수 있습니다. 시각화 도구, 데이터 내보내기 기능을 제공합니다.',
             'gamepotDashboardTitle': '게임팟 대시보드 (준비중)',
-            'gamepotDashboardDesc': '게임팟 대시보드를 앱으로 바로 실행이 가능합니다. 게임팟에는 로그인, 결제, 공지사항, 커뮤니티등 게임팟에 모든 기능을 접근을 가능합니다.'
+            'gamepotDashboardDesc': '게임팟 대시보드를 앱으로 바로 실행이 가능합니다. 게임팟에는 로그인, 결제, 공지사항, 커뮤니티등 게임팟에 모든 기능을 접근을 가능합니다.',
+            'standardPlan': '스탠다드',
+            'enterprisePlan': '엔터프라이즈',
+            'contactForPrice': '문의 요망',
+            'enterpriseFeature1': '스탠다드 플랜의 모든 기능 포함',
+            'enterpriseFeature2': '맞춤형 커스터마이징',
+            'enterpriseFeature3': '24시간 7일 대응',
+            'enterpriseFeature4': '메신저/전화를 통한 기술지원',
+            'contactUsBtn': '문의하기'
           },
           'en': {
             'languageText': 'English',
@@ -1111,7 +1150,15 @@
             'trafficAnalyticsTitle': 'Traffic Analytics (Coming Soon)',
             'trafficAnalyticsDesc': 'Monitor download status in real-time to optimize costs. Includes visualization tools and data export functionality.',
             'gamepotDashboardTitle': 'GamePot Dashboard (Coming Soon)',
-            'gamepotDashboardDesc': 'Launch the GamePot dashboard directly from the app. Access all GamePot features including login, payment, announcements, and community.'
+            'gamepotDashboardDesc': 'Launch the GamePot dashboard directly from the app. Access all GamePot features including login, payment, announcements, and community.',
+            'standardPlan': 'Standard',
+            'enterprisePlan': 'Enterprise',
+            'contactForPrice': 'Contact for pricing',
+            'enterpriseFeature1': 'All features from Standard plan',
+            'enterpriseFeature2': 'Custom tailoring & customization',
+            'enterpriseFeature3': '24/7 priority support',
+            'enterpriseFeature4': 'Technical support via messenger/phone',
+            'contactUsBtn': 'Contact Us'
           },
           'ja': {
             'languageText': '日本語',
@@ -1193,7 +1240,15 @@
             'trafficAnalyticsTitle': 'トラフィック分析 (準備中)',
             'trafficAnalyticsDesc': 'ダウンロード状況をリアルタイムでモニタリングし、コストを最適化できます。可視化ツール、データエクスポート機能を提供します。',
             'gamepotDashboardTitle': 'GamePotダッシュボード (準備中)',
-            'gamepotDashboardDesc': 'GamePotダッシュボードをアプリから直接起動できます。GamePotにはログイン、決済、お知らせ、コミュニティなど、GamePotのすべての機能にアクセスできます。'
+            'gamepotDashboardDesc': 'GamePotダッシュボードをアプリから直接起動できます。GamePotにはログイン、決済、お知らせ、コミュニティなど、GamePotのすべての機能にアクセスできます。',
+            'standardPlan': 'スタンダード',
+            'enterprisePlan': 'エンタープライズ',
+            'contactForPrice': 'お問い合わせください',
+            'enterpriseFeature1': 'スタンダードプランのすべての機能を含む',
+            'enterpriseFeature2': 'カスタムカスタマイズ対応',
+            'enterpriseFeature3': '24時間365日サポート',
+            'enterpriseFeature4': 'メッセンジャー/電話による技術サポート',
+            'contactUsBtn': 'お問い合わせ'
           },
           'zh-CN': {
             'languageText': '简体中文',
@@ -1275,7 +1330,15 @@
             'trafficAnalyticsTitle': '流量分析 (准备中)',
             'trafficAnalyticsDesc': '实时监控下载状态，优化成本。提供可视化工具、数据导出功能。',
             'gamepotDashboardTitle': 'GamePot仪表板 (准备中)',
-            'gamepotDashboardDesc': '可直接从应用程序启动GamePot仪表板。可访问GamePot的所有功能，包括登录、支付、公告、社区等。'
+            'gamepotDashboardDesc': '可直接从应用程序启动GamePot仪表板。可访问GamePot的所有功能，包括登录、支付、公告、社区等。',
+            'standardPlan': '标准版',
+            'enterprisePlan': '企业版',
+            'contactForPrice': '价格咨询',
+            'enterpriseFeature1': '包含标准版的所有功能',
+            'enterpriseFeature2': '定制化开发服务',
+            'enterpriseFeature3': '24/7全天候技术支持',
+            'enterpriseFeature4': '通过即时通讯/电话提供技术支持',
+            'contactUsBtn': '联系我们'
           },
           'zh-TW': {
             'languageText': '繁體中文',
@@ -1357,7 +1420,15 @@
             'trafficAnalyticsTitle': '流量分析 (準備中)',
             'trafficAnalyticsDesc': '即時監控下載狀態，優化成本。提供視覺化工具、資料匯出功能。',
             'gamepotDashboardTitle': 'GamePot儀表板 (準備中)',
-            'gamepotDashboardDesc': '可直接從應用程式啟動GamePot儀表板。可存取GamePot的所有功能，包括登入、支付、公告、社群等。'
+            'gamepotDashboardDesc': '可直接從應用程式啟動GamePot儀表板。可存取GamePot的所有功能，包括登入、支付、公告、社群等。',
+            'standardPlan': '標準版',
+            'enterprisePlan': '企業版',
+            'contactForPrice': '請諮詢',
+            'enterpriseFeature1': '包含標準版的所有功能',
+            'enterpriseFeature2': '自定義定製',
+            'enterpriseFeature3': '24/7全天候支援',
+            'enterpriseFeature4': '通過即時通訊/電話提供技術支援',
+            'contactUsBtn': '聯絡我們'
           }
         };
 
@@ -1413,6 +1484,16 @@
         console.log('초기 언어 설정:', initialLang);
         changeLang(initialLang);
         updateLanguageDisplay(initialLang);
+
+        // Crisp 채팅 버튼 이벤트 처리
+        document.querySelectorAll('[data-i18n="contactUsBtn"]').forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (window.$crisp) {
+              $crisp.push(['do', 'chat:open']);
+            }
+          });
+        });
       });
     </script><script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="e1d89975-dc6c-4a5e-9e60-7c6de72594f5";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
   </body>
