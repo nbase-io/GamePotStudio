@@ -1444,7 +1444,8 @@
         
         // 다운로드 URL 생성 함수
         window.getDownloadUrl = function(os) {
-          const baseUrl = 'https://github.com/nbase-io/GamePotStudio/releases/latest/download/';
+          const baseUrl = 'https://github.com/nbase-io/GamePotStudio/releases/';
+          return baseUrl;
           const version = '1.0.4'; // 버전 정보(필요시 업데이트)
           
           switch(os) {
