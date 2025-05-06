@@ -674,7 +674,7 @@
               <li data-i18n="win10orLater">윈도우 10 이상</li>
               <li data-i18n="bit64OS">64비트 운영체제</li>
             </ul>
-            <a href="#" class="inline-flex px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors" data-i18n="downloadButton">
+            <a href="#" onclick="downloadApp('windows'); return false;" class="inline-flex px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors" data-i18n="downloadButton">
               다운로드
             </a>
           </div>
@@ -691,7 +691,7 @@
               <li data-i18n="macOS11orLater">맥OS 11.0 이상</li>
               <li data-i18n="appleSilicon">애플실리콘</li>
             </ul>
-            <a href="#" class="inline-flex px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors" data-i18n="downloadButton">
+            <a href="#" onclick="downloadApp('mac-arm'); return false;" class="inline-flex px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors" data-i18n="downloadButton">
               다운로드
             </a>
           </div>
@@ -708,7 +708,7 @@
               <li data-i18n="macOS11orLater">맥OS 11.0 이상</li>
               <li data-i18n="intelProcessor">인텔 프로세서</li>
             </ul>
-            <a href="#" class="inline-flex px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors" data-i18n="downloadButton">
+            <a href="#" onclick="downloadApp('mac-intel'); return false;" class="inline-flex px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors" data-i18n="downloadButton">
               다운로드
             </a>
           </div>
@@ -725,8 +725,8 @@
               <li data-i18n="ubuntu18OrLater">우분투 18.04 LTS 이상</li>
               <li data-i18n="bit64OS">64비트 운영체제</li>
             </ul>
-            <a href="#" class="inline-flex px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors" data-i18n="downloadButton">
-              다운로드
+            <a href="#" onclick="downloadApp('linux'); return false;" class="inline-flex px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors" data-i18n="downloadButton">
+              준비중
             </a>
           </div>
         </div>
@@ -1414,8 +1414,115 @@
             }
           });
         });
+
+        // OS 감지 및 다운로드 스크립트
+        function detectOS() {
+          const userAgent = window.navigator.userAgent;
+          const platform = window.navigator.platform;
+          const macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'];
+          const windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
+          const iosPlatforms = ['iPhone', 'iPad', 'iPod'];
+          
+          if (macosPlatforms.indexOf(platform) !== -1) {
+            // macOS 시스템에서 Apple Silicon인지 확인
+            if (userAgent.indexOf('Mac') !== -1 && (userAgent.indexOf('ARM') !== -1 || userAgent.indexOf('Apple') !== -1)) {
+              return 'mac-arm';
+            }
+            return 'mac-intel';
+          } else if (windowsPlatforms.indexOf(platform) !== -1) {
+            return 'windows';
+          } else if (iosPlatforms.indexOf(platform) !== -1) {
+            return 'ios';
+          } else if (/Android/.test(userAgent)) {
+            return 'android';
+          } else if (/Linux/.test(platform)) {
+            return 'linux';
+          }
+          
+          return 'unknown';
+        }
+        
+        // 다운로드 URL 생성 함수
+        window.getDownloadUrl = function(os) {
+          const baseUrl = 'https://github.com/nbase-io/GamePotStudio/releases/latest/download/';
+          const version = '1.0.4'; // 버전 정보(필요시 업데이트)
+          
+          switch(os) {
+            case 'windows':
+              return `${baseUrl}GamePotStudio-Setup-${version}.exe?platform=windows&arch=x64`;
+            case 'mac-arm':
+              return `${baseUrl}GamePotStudio-${version}-arm64.dmg?platform=mac&arch=arm64`;
+            case 'mac-intel':
+              return `${baseUrl}GamePotStudio-${version}.dmg?platform=mac&arch=x64`;
+            case 'linux':
+              return `${baseUrl}GamePotStudio-${version}.AppImage?platform=linux&arch=x64`;
+            default:
+              return `https://github.com/nbase-io/GamePotStudio/releases`;
+          }
+        };
+        
+        // 다운로드 함수
+        window.downloadApp = function(os) {
+          const detectedOS = os || detectOS();
+          console.log('감지된 OS:', detectedOS);
+          
+          // Linux의 경우 준비 중이면 메시지 표시
+          if (detectedOS === 'linux' && document.querySelector('[data-i18n="linux"] + a').textContent.trim() === '준비중') {
+            const translations = {
+              'ko': '리눅스 버전은 현재 개발 중입니다. 곧 제공될 예정입니다.',
+              'en': 'Linux version is under development. It will be available soon.',
+              'ja': 'Linux版は現在開発中です。近日中に提供される予定です。',
+              'zh-CN': 'Linux版本正在开发中。即将推出。',
+              'zh-TW': 'Linux版本正在開發中。即將推出。'
+            };
+            
+            const currentLang = localStorage.getItem('preferredLanguage') || 'ko';
+            alert(translations[currentLang] || translations['ko']);
+            return;
+          }
+          
+          // 다운로드 URL 생성 및 이동
+          const downloadUrl = getDownloadUrl(detectedOS);
+          
+          // 다운로드 통계 전송 (필요시 구현)
+          // sendDownloadStats(detectedOS);
+          
+          // 새 창에서 다운로드 URL 열기
+          window.open(downloadUrl, '_blank');
+        };
+        
+        // 페이지 로드 시 OS 감지하여 해당 OS 다운로드 버튼 강조 표시
+        const detectedOS = detectOS();
+        if (detectedOS !== 'unknown') {
+          let selector;
+          
+          switch(detectedOS) {
+            case 'windows':
+              selector = 'fa-windows';
+              break;
+            case 'mac-arm':
+            case 'mac-intel':
+              selector = 'fa-apple';
+              break;
+            case 'linux':
+              selector = 'fa-linux';
+              break;
+          }
+          
+          if (selector) {
+            const osIcon = document.querySelector(`.${selector}`);
+            if (osIcon) {
+              const downloadButton = osIcon.closest('div.bg-white').querySelector('a.inline-flex');
+              if (downloadButton) {
+                downloadButton.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+                downloadButton.classList.add('bg-green-600', 'hover:bg-green-700');
+              }
+            }
+          }
+        }
       });
-    </script><script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="e1d89975-dc6c-4a5e-9e60-7c6de72594f5";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+    </script>
+    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="e1d89975-dc6c-4a5e-9e60-7c6de72594f5";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
   </body>
   <script defer src="https://umami.ncloudus.com/script.js" data-website-id="fe2cffb2-bec4-475a-be6b-3548f8f1463b"></script>
 </html>
